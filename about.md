@@ -5,5 +5,11 @@ permalink: /about/
 tags: DevOps Engineer Full stack Engineer Automation CI/CD Kubernetes Ansible Docker AWS Cloud Native Apps Jenkins Argocd Gocd Helm
 ---
 
-Full stack developer turned Automation/DevOps Engineer, I have hands-on experience in supporting, automating, monitoring and optimizing mission critical deployments and infrastructure - leveraging configuration management, CI/CD, and DevOps processes.
-I now find love in troubleshooting/debugging issues, finding performance bottlenecks and improving build release time. Self Motivated, self-starter and a technology enthusiast. I gorge on blogs/articles on technology and football. 
+Welcome to my blog! I'm Arun, a seasoned professional with extensive experience as a DevOps Engineer and a background in leading technical teams. My journey in the tech industry has been driven by a passion for creating efficient, scalable systems and solving complex technical challenges.
+
+Beyond my professional life, I'm deeply interested in personal finance, insurance, and investing. I believe in the power of financial literacy and am dedicated to sharing insights and strategies to help others achieve financial independence and security.
+
+Join me as I explore the latest in DevOps technologies, delve into the world of personal finance, and share practical tips on insurance and investing. Let's embark on this journey towards technical excellence and financial empowerment together!
+
+
+
