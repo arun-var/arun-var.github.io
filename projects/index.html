@@ -1,0 +1,32 @@
+---
+layout: page
+title: Projects
+subtitle: Portfolio of DevOps and Cloud projects
+permalink: /projects/
+---
+
+{% assign items = site.projects | sort: 'date' | reverse %}
+
+{% for project in items %}
+
+<div style="margin-bottom: 2rem;">
+  <h2><a href="{{ project.url | relative_url }}">{{ project.title }}</a></h2>
+
+  {% if project.image %}
+  <img src="{{ project.image | relative_url }}" alt="{{ project.title }}" style="max-width: 100%; height: auto; margin-bottom: 1rem;">
+  {% endif %}
+
+  {% if project.description %}
+  <p>{{ project.description }}</p>
+  {% endif %}
+
+  <p><a href="{{ project.url | relative_url }}" class="btn btn-primary">View Project</a></p>
+</div>
+
+<hr>
+
+{% endfor %}
+
+{% if items.size == 0 %}
+<p>No projects yet. Check back soon!</p>
+{% endif %}

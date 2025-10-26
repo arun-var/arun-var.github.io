@@ -1,0 +1,12 @@
+<article class="card project-card">
+  <a class="card-link" href="{{ include.item.url | relative_url }}">
+    {% if include.item.image %}
+      <img class="card-img" src="{{ include.item.image | relative_url }}" alt="{{ include.item.title }}">
+    {% endif %}
+    <div class="card-body">
+      <h3 class="card-title">{{ include.item.title }}</h3>
+      {% if include.item.stack %}<p class="card-meta">{{ include.item.stack | join: ", " }}</p>{% endif %}
+      <p class="card-text">{{ include.item.excerpt | default: include.item.description | default: "" }}</p>
+    </div>
+  </a>
+</article>

@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://0.0.0.0:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-10-25T14:31:00-04:00</updated><id>http://0.0.0.0:4000/atom.xml</id><title type="html">Arun Varghese</title><subtitle>DevOps • Cloud • Full‑stack</subtitle><author><name>Arun Varghese</name></author><entry><title type="html">Hello, world — new site</title><link href="http://0.0.0.0:4000/2025-10-22-welcome/" rel="alternate" type="text/html" title="Hello, world — new site" /><published>2025-10-22T00:00:00-04:00</published><updated>2025-10-22T00:00:00-04:00</updated><id>http://0.0.0.0:4000/welcome</id><content type="html" xml:base="http://0.0.0.0:4000/2025-10-22-welcome/"><![CDATA[<p>First post on my new Jekyll site. I’ll share notes on AWS, Kubernetes, CI/CD, and indie‑hacking.</p>]]></content><author><name>Arun Varghese</name></author><category term="devops" /><category term="jekyll" /><summary type="html"><![CDATA[First post on my new Jekyll site. I’ll share notes on AWS, Kubernetes, CI/CD, and indie‑hacking.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/img/og-default.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/img/og-default.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Podman and Colima as docker desktop alternatives for enterprise users</title><link href="http://0.0.0.0:4000/2023-03-04-docker-desktop-alternative-podman-colima/" rel="alternate" type="text/html" title="Podman and Colima as docker desktop alternatives for enterprise users" /><published>2023-03-04T00:00:00-05:00</published><updated>2023-03-04T00:00:00-05:00</updated><id>http://0.0.0.0:4000/docker-desktop-alternative-podman-colima</id><content type="html" xml:base="http://0.0.0.0:4000/2023-03-04-docker-desktop-alternative-podman-colima/"><![CDATA[<h1 id="docker-desktop-alternatives-for-enterprise-users">Docker Desktop Alternatives for Enterprise Users</h1>
+
+<p>Docker has changed its <a href="https://www.docker.com/pricing/">Service Agreement</a> and requires a paid subscription for Docker Desktop. It is a popular tool used by many developers to manage containers on their Mac. However, some users may want to explore alternatives to Docker Desktop / Docker for various reasons, such as performance issues or the desire for daemonless docker. Two possible alternatives to Docker Desktop on a Mac are <a href="https://podman.io/">Podman</a> and <a href="https://github.com/abiosoft/colima">Colima</a>. In this blog, I just wanted to quickly document my experience on try out these two alternatives as well as the pros and cons of each.</p>
+
+<h2 id="replacing-docker-desktop-with-podman-on-mac">Replacing Docker Desktop with Podman on Mac</h2>
+
+<p>Podman is a container management tool that allows users to manage containers without requiring a daemon to be running in the background. It is an open-source project developed by Red Hat and provides a CLI that is compatible with Docker.</p>
+
+<p>Install Podman: Podman can be installed on a Mac using Homebrew. Open a terminal window and enter the following commands:</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">brew <span class="nb">install </span>podman
+
+brew <span class="nb">install </span>podman-completion</code></pre></figure>
+
+<p>This will install Podman and its completion script.</p>
+
+<p>Start using Podman: Once Podman is installed, you can start using it to manage your containers. To run a container, use the podman run command. For example, to run a simple hello-world container, enter the following command in the terminal:</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">podman run hello-world</code></pre></figure>
+
+<h2 id="pros-and-cons-of-podman">Pros and Cons of Podman</h2>
+
+<h3 id="pros">Pros:</h3>
+
+<ul>
+  <li>Podman does not require a daemon to be running in the background, which can improve performance and security.</li>
+  <li>Podman provides a Docker-compatible CLI, making it easy to switch from Docker to Podman.</li>
+  <li>Podman supports rootless containers, which allows non-root users to run containers.</li>
+</ul>
+
+<h3 id="cons">Cons:</h3>
+
+<ul>
+  <li>Podman is not as widely used as Docker, so finding support or tutorials may be more difficult.</li>
+  <li>Podman does not currently support Docker Compose, although this may change in the future.</li>
+</ul>
+
+<p>Note: I had issues with volume mounting in podman, but looks like passing the mount to podman machine during its creation fixes it.
+For ex,</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">podman machine init <span class="nt">--disk-size</span> 20 <span class="nt">-v</span> <span class="se">\$</span>HOME:<span class="nv">$HOME</span>
+
+podman machine start</code></pre></figure>
+
+<h2 id="replacing-docker-desktop-with-colima-on-mac">Replacing Docker Desktop with Colima on Mac</h2>
+
+<p>Colima is a Docker and Kubernetes development environment for Mac. It is built on top of macOS Hypervisor framework and provides a lightweight, native experience for managing containers.</p>
+
+<p>To replace Docker Desktop with Colima on a Mac, follow these steps:</p>
+
+<p>Install Colima: Colima can be downloaded from the official website. Once downloaded, open the DMG file and drag the Colima app to the Applications folder.</p>
+
+<p>Start using Colima: Once Colima is installed, open the app and follow the setup instructions. You can then start using Colima to manage your containers.</p>
+
+<h2 id="pros-and-cons-of-colima">Pros and Cons of Colima</h2>
+
+<h3 id="pros-1">Pros:</h3>
+
+<ul>
+  <li>Colima provides a lightweight, native experience for managing containers on a Mac.</li>
+  <li>Colima supports Docker Compose and Kubernetes, making it a versatile tool for container management.</li>
+  <li>Colima provides a web-based interface for managing containers, which can be more user-friendly than a CLI.</li>
+</ul>
+
+<h3 id="cons-1">Cons:</h3>
+
+<ul>
+  <li>Colima is a relatively new tool and may have bugs or compatibility issues.
+C- olima is not as widely used as Docker, so finding support or tutorials may be more difficult.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>Replacing Docker Desktop with Podman or Colima on a Mac is relatively easy, and both tools offer certain pros and cons. Podman is a lightweight tool that provides a Docker-compatible CLI, while Colima provides a native, web-based interface for managing containers. Ultimately, the choice of which tool to use depends on the user.</p>]]></content><author><name>Arun Varghese</name></author><category term="docker" /><category term="docker-desktop" /><category term="mac" /><category term="docker" /><category term="docker-desktop" /><category term="mac" /><category term="colima" /><category term="podman" /><summary type="html"><![CDATA[Alternatives for Docker Desktop Enterprise Users Pros and Cons of Podman and Colima]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/img/og-default.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/img/og-default.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Lessons from Sectigo’s Expired Certificates</title><link href="http://0.0.0.0:4000/2020-05-30-fix-sectigo-expired-cert/" rel="alternate" type="text/html" title="Lessons from Sectigo’s Expired Certificates" /><published>2020-05-30T16:43:52-04:00</published><updated>2020-05-30T16:43:52-04:00</updated><id>http://0.0.0.0:4000/fix-sectigo-expired-cert</id><content type="html" xml:base="http://0.0.0.0:4000/2020-05-30-fix-sectigo-expired-cert/"><![CDATA[<h2 id="lessons-from-sectigos-expired-certificates---why-it-is-important-to-validate-ssl-certificate-chain-and-not-just-root-ssl-certificate-in-monitoring-systems">Lessons from Sectigo’s Expired Certificates - Why it is important to validate SSL certificate chain and not just root SSL certificate in monitoring systems</h2>
+<p><br /></p>
+
+<h3 id="how-it-all-started-today">How it all started today?</h3>
+<p>Today we noticed that in some of our applications connection to our internal API’s are failing with the following error messages -</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RestClient::SSLCertificateNotVerified (SSL_connect returned=1 errno=0 state=error: certificate verify failed)
+</code></pre></div></div>
+
+<p>When we checked the nginx logs of the API’s we saw the following error -</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SSL_shutdown() failed (SSL: error:140E0197:SSL routines:SSL_shutdown:shutdown while in init) while SSL handshaking
+</code></pre></div></div>
+
+<p>API’s health check from browser did not show any issue, all seemed fine. Infact, the SSL certificate was not expiring before 2021. So what was causing this issue? Upon further investigation it was found that one of the intermediate certificate in the certificate chain has expired!
+Sectigo’s External CA root expired and thus our certifactes had issues.</p>
+
+<h3 id="how-did-we-fix-it">How did we fix it?</h3>
+<p>The fix was to update our full certificate file with the new roots. In our case, it looked like the following -</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Subject CN: *.ourdomain.com &gt; Issuer CN: Sectigo RSA Domain Validation Secure Server CA
+2. Subject CN: Sectigo RSA Domain Validation Secure Server CA &gt; Issuer CN: USERTrust RSA Certification Authority
+3. Subject CN: USERTrust RSA Certification Authority &gt; Issuer CN: AddTrust External CA Root
+4. Subject CN: AddTrust External CA Root &gt; Issuer CN: AddTrust External CA Root
+</code></pre></div></div>
+
+<p>We updated the new UserTrust certs for Sectigo from <a href="https://support.sectigo.com/articles/Knowledge/Sectigo-AddTrust-External-CA-Root-Expiring-May-30-2020">this link</a>.</p>
+
+<p>The modern root certificates are availble under the heading <strong>USERTrust RSA Certification Authority</strong>. A couple of sections below the cross certificates are also availble.</p>
+
+<p>The certificates need not be re-issued and can be updated with these new ones. In our case 3 and 4 in the full chain were replaced.</p>
+
+<p>Hope this helps someone. Let me know in case there is some correction.</p>]]></content><author><name>Arun Varghese</name></author><category term="ssl" /><category term="ssl" /><category term="issues" /><category term="sectigo" /><category term="certificates" /><category term="ssl-expiry" /><summary type="html"><![CDATA[Lessons from Sectigo’s Expired Certificates - Why it is important to validate SSL certificate chain and not just root SSL certificate in monitoring systems]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2020-05-30-fix-sectigo-expired-cert/ssl.JPG" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2020-05-30-fix-sectigo-expired-cert/ssl.JPG" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Commonly used Elasticsearch REST APIs at work</title><link href="http://0.0.0.0:4000/2020-05-13-useful-elasticsearch-rest-apis/" rel="alternate" type="text/html" title="Commonly used Elasticsearch REST APIs at work" /><published>2020-05-13T09:13:55-04:00</published><updated>2020-05-13T09:13:55-04:00</updated><id>http://0.0.0.0:4000/useful-elasticsearch-rest-apis</id><content type="html" xml:base="http://0.0.0.0:4000/2020-05-13-useful-elasticsearch-rest-apis/"><![CDATA[<h2 id="helpful-elasticsearch-apis">Helpful Elasticsearch APIs</h2>
+
+<p>This is a simple post listing the Elasticsearch rest APIs that I use most at work.</p>
+
+<h3 id="list-all-indices">List all indices</h3>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">curl <span class="s2">"localhost:9200/_cat/indices"</span></code></pre></figure>
+
+<h3 id="list-all-shards">List all shards</h3>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">curl <span class="s2">"localhost:9200/_cat/shards"</span></code></pre></figure>
+
+<h3 id="list-all-elasticserach-nodes">List all elasticserach nodes</h3>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">curl <span class="s2">"localhost:9200/_nodes?pretty"</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">curl <span class="s2">"localhost:9200/_cluster/allocation/explain?pretty"</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">curl <span class="nt">-s</span> <span class="s1">'localhost:9200/_cat/allocation?v'</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">curl <span class="nt">-XPOST</span> localhost:9200/_cluster/reroute?retry_failed<span class="o">=</span><span class="nb">true</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">curl <span class="nt">-X</span> POST localhost:9200/_reindex <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+<span class="nt">-d</span> <span class="s1">'{
+  "source": {
+    "index": "&lt;&lt;index_old_ones_with_data&gt;&gt;",
+    "query": {
+        "match_all": {}
+    }
+  },
+  "dest": {
+    "index": "&lt;&lt;new_index_with_new_mapping&gt;&gt;"
+  }
+}'</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">curl <span class="nt">-X</span> POST localhost:9200/_reindex <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+<span class="nt">-H</span> <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+<span class="nt">-d</span> <span class="s1">'{
+  "source": {
+    "remote": {
+      "host": "http://&lt;some-ip&gt;:9200"
+    },
+    "index": "&lt;&lt;index_old_ones_with_data&gt;&gt;",
+    "query": {
+        "match_all": {}
+    }
+  },
+  "dest": {
+    "index": "&lt;&lt;new_index_with_new_mapping&gt;&gt;"
+  }
+}'</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">curl <span class="nt">-X</span> POST <span class="s2">"localhost:9200/&lt;index_name&gt;/_search?pretty"</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="nt">-d</span><span class="s1">'
+{
+  "query": {
+    "match": {
+      "&lt;field&gt;": "&lt;field-value&gt;"
+    }
+  }
+}
+'</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">curl <span class="nt">-X</span> POST <span class="s2">"localhost:9200/&lt;index_name&gt;/_delete_by_query?pretty"</span> <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="nt">-d</span><span class="s1">'
+{
+  "query": {
+    "match": {
+      "&lt;field&gt;": "&lt;field-value&gt;"
+    }
+  }
+}
+'</span></code></pre></figure>
+
+<p>PS: I will add description for each soon</p>]]></content><author><name>Arun Varghese</name></author><category term="elasticsearch" /><category term="elasticsearch" /><category term="rest-api" /><summary type="html"><![CDATA[Helpful Elasticsearch APIs]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2020-05-13-useful-elasticsearch-rest-apis/elasticsearch.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2020-05-13-useful-elasticsearch-rest-apis/elasticsearch.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Understanding docker layers and overlay filesystem</title><link href="http://0.0.0.0:4000/2019-11-19-docker-layers-and-overlay-fs/" rel="alternate" type="text/html" title="Understanding docker layers and overlay filesystem" /><published>2019-11-19T07:47:46-05:00</published><updated>2019-11-19T07:47:46-05:00</updated><id>http://0.0.0.0:4000/docker-layers-and-overlay-fs</id><content type="html" xml:base="http://0.0.0.0:4000/2019-11-19-docker-layers-and-overlay-fs/"><![CDATA[<h2 id="what-are-docker-layers-and-overlay-filesystems">What are docker layers and overlay filesystems</h2>
+<p>A docker image consists of layers. Each layer is an instruction in the Dockerfile. A container is an image with a writable(or readable) layer or top of other read only layers. This is where an overlayfs comes in to picture.
+This was one of the things that I wanted to understand better - What exactly is an overlay file system and how is docker using it.
+From archlinux wiki definition
+“Overlayfs allows one, usually read-write, directory tree to be overlaid onto another, read-only directory tree. All modifications go to the upper, writable layer.”</p>
+
+<p>An apt example is a linux live CD.</p>
+
+<p>Lets get down to how this overlay file system works</p>
+
+<h3 id="overlays-and-docker">Overlays and docker</h3>
+
+<p>It consists of three layers for the sake of simplicity.</p>
+
+<ul>
+  <li>Lower Read Only Layer</li>
+  <li>Upper Layer that allows read and write</li>
+  <li>The Overlay layer itself that gives the user entire view of the filesystem and from where user actually reads a file or writes to them.</li>
+</ul>
+
+<h4 id="lower-layer">Lower Layer</h4>
+<p>The read only layer where base files of the filesystem are stored. It can be visualized as the base image of our docker image or root of a live CD example.</p>
+
+<h4 id="upper-layer">Upper Layer</h4>
+<p>Any changes made in the overlay layer gets stored in the upper layer. Whenever a process reads a file from the overlay layer, it is checked in upper layer first, if not available it is read from the lower layer.</p>
+
+<h4 id="overlay">Overlay</h4>
+<p>This is the consolidated or union view of lower and upper layers and where the user works on. Whenever any changes are made to a file, overlay layer presents the union of upper and lower layers such that files in upper layer supersede the ones in lower layer.</p>
+
+<p>When objects with the same name exist in both directory trees of upper and lower layers, then their treatment depends on the object type:</p>
+
+<p>File: We see the file in the upper layer, and the file in the lower layer is hidden.</p>
+
+<p>Directory: content of both upper and lower layers of the directory tree is combined and shown in the overlay</p>
+
+<h4 id="copy-on-write">Copy-on-Write</h4>
+<p>Whenever a file already present in lower layer is modified, the file is first copied over to the upper layer and then the modifications are made here.</p>
+
+<h4 id="overlay-in-action">Overlay in action</h4>
+
+<p>Lets create directories</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">root@dd4a4d50aefc:~# <span class="nb">mkdir </span>lower upper merged workdir
+root@dd4a4d50aefc:~# <span class="nb">echo</span> <span class="s2">"I am in lower layer"</span> <span class="o">&gt;</span> lower/lower.txt
+root@dd4a4d50aefc:~# <span class="nb">echo</span> <span class="s2">"I am in upper layer"</span> <span class="o">&gt;</span> upper/upper.txt
+root@dd4a4d50aefc:~# <span class="nb">echo</span> <span class="s2">"I am common file lower layer"</span> <span class="o">&gt;</span> lower/common.txt
+root@dd4a4d50aefc:~# <span class="nb">echo</span> <span class="s2">"I am common file upper layer"</span> <span class="o">&gt;</span> upper/common.txt
+root@dd4a4d50aefc:~# <span class="nb">sudo </span>mount <span class="nt">-t</span> overlay overlay <span class="nt">-o</span> <span class="nv">lowerdir</span><span class="o">=</span>/root/lower,upperdir<span class="o">=</span>/root/upper,workdir<span class="o">=</span>/root/workdir /root/merged
+root@dd4a4d50aefc:~# <span class="nb">ls </span>merged/
+common.txt  lower.txt  upper.txt
+root@dd4a4d50aefc:~# <span class="nb">cat </span>merged/common.txt 
+I am common file upper layer
+root@dd4a4d50aefc:~# <span class="nb">ls </span>lower/
+common.txt  lower.txt
+root@dd4a4d50aefc:~# <span class="nb">ls </span>upper/
+common.txt  upper.txt</code></pre></figure>
+
+<p>The lower layer can be read-only and an overlay itself, while the upper layer is normally writeable. In order to create an overlay of two directories, dir1 and dir2, we can use the following mount command:</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">root@dd4a4d50aefc:~# <span class="nb">sudo </span>mount <span class="nt">-t</span> overlay overlay <span class="nt">-o</span> <span class="nv">lowerdir</span><span class="o">=</span>/root/lower2:/root/lower1,upperdir<span class="o">=</span>/root/upper,workdir<span class="o">=</span>/root/workdir /root/merged</code></pre></figure>
+
+<p>while specifying multiple lower layers, they are separated by a :, with the rightmost lower directory on the bottom, and the leftmost lower directory on the top of the overlay.</p>
+
+<h4 id="new-file-creation-in-overlay">New file creation in overlay</h4>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">root@dd4a4d50aefc:~# <span class="nb">echo</span> <span class="s2">"I am the new file on the block"</span> <span class="o">&gt;</span> merged/new.txt
+root@dd4a4d50aefc:~# <span class="nb">ls </span>merged/
+common.txt  lower.txt  new.txt  upper.txt
+root@dd4a4d50aefc:~# <span class="nb">ls </span>upper/
+common.txt  new.txt  upper.txt
+root@dd4a4d50aefc:~# <span class="nb">ls </span>lower/
+common.txt  lower.txt</code></pre></figure>
+
+<p>References</p>
+<ul>
+  <li>https://docs.docker.com/storage/storagedriver/#images-and-layers</li>
+  <li>https://wiki.archlinux.org/index.php/Overlay_filesystem</li>
+  <li>https://www.kernel.org/doc/Documentation/filesystems/overlayfs.txt</li>
+</ul>]]></content><author><name>Arun Varghese</name></author><category term="docker" /><category term="docker" /><category term="docker-layers" /><category term="overlay" /><summary type="html"><![CDATA[Docker layers explained - A docker image consists of layers. Each layer is an instruction in the Dockerfile. A container is an image with a writable(or readable) layer or top of other read only layers. This is where an overlayfs comes in to picture.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2019-11-19-docker-layers-and-overlay-fs/docker1.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2019-11-19-docker-layers-and-overlay-fs/docker1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to write safe shell scripts</title><link href="http://0.0.0.0:4000/2019-11-13-write-safe-shell-scripts/" rel="alternate" type="text/html" title="How to write safe shell scripts" /><published>2019-11-13T10:52:57-05:00</published><updated>2019-11-13T10:52:57-05:00</updated><id>http://0.0.0.0:4000/write-safe-shell-scripts</id><content type="html" xml:base="http://0.0.0.0:4000/2019-11-13-write-safe-shell-scripts/"><![CDATA[<h2 id="good-practices-in-bash-scripts">Good Practices in bash scripts</h2>
+
+<h3 id="shebang-">Shebang (#!)</h3>
+
+<p>It is called a shebang or a “bang” line. It is nothing but the absolute path to the Bash interpreter. It consists of a number sign and an exclamation point character (#!), followed by the full path to the interpreter such as /bin/bash. All scripts under Linux execute using the interpreter specified on a first line.
+This ensures that the correct interpreter will be used to interpret the script, even if it is executed under another shell.</p>
+
+<h3 id="set--e">set -e</h3>
+
+<p>this will make the shell script exit as soon as any line in the bash script fails.
+for example, a shell file like below will execute every line</p>
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/501d903a4db01b5bcbf4e59e7ecae7c2.js"> </script>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./set_e_without.sh 
+<span class="nb">true
+true
+false
+true</span></code></pre></figure>
+
+<p>After adding set -e, it will stop executing after the line that fails, in this case the one that returns false.</p>
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/9d841d3cc79224faf16f8fc602799372.js"> </script>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_set_e.sh 
+<span class="nb">true
+true</span></code></pre></figure>
+
+<h3 id="ignore-failure-in-scripts">Ignore failure in scripts</h3>
+<p>if we don’t want the script to fail after certain failing statements, we can append these certain statements with || true.</p>
+
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/1531d5db9b2bd6f0b3aa98c7d73cd044.js"> </script>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_set_e_and_ignore_fail.sh           
+<span class="nb">true
+true
+</span>failing foo was ignored
+<span class="nb">true</span></code></pre></figure>
+
+<h3 id="set--x">set -x</h3>
+
+<p>this will make the shell print each line before execution. Combining this with previous set statement and same example, it will look like</p>
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/a9c92e43f02fd4c65514bb63fb05dce4.js"> </script>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_set_x.sh           
+++ <span class="nb">true</span>
+++ <span class="nb">echo true
+true</span>
+++ <span class="nb">true</span>
+++ <span class="nb">echo true
+true</span>
+++ <span class="nb">false</span></code></pre></figure>
+
+<h3 id="set--u">set -u</h3>
+
+<p>The following example has variable <em>b</em> which is not set. The run of the script will be successful.</p>
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/a9b2414088f39537cbd6e168e9e716f6.js"> </script>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./without_set_u.sh 
+++ <span class="nv">a</span><span class="o">=</span>0
+++ <span class="nb">echo </span>0
+0
+++ <span class="nb">echo </span>0
+0
+++ <span class="nb">echo</span>
+
+++ <span class="nb">echo </span>0
+0</code></pre></figure>
+
+<p>But adding <em>-u</em> to the same script will force bash to treat unset variables as an error and exit immediately.</p>
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/ca24e436660a986cbd58d9b22f113ce2.js"> </script>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_set_u.sh 
+++ <span class="nv">a</span><span class="o">=</span>0
+++ <span class="nb">echo </span>0
+0
+++ <span class="nb">echo </span>0
+0
+./with_set_u.sh: line 5: b: unbound variable</code></pre></figure>
+
+<h3 id="set--o-pipefail">set -o pipefail</h3>
+
+<p>bash usually looks at the exit code of the last command in a pipeline. This can cause a problem for -e option as it will only consider the leftmost command’s exit code in a pipeline.
+This particular option sets the exit code of pipeline commands to that of the rightmost command to exit with a non-zero status or 0 if all exit successfully.</p>
+
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/5df45b0e6c32925c6ffd927c77b16900.js"> </script>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./without_pipefail.sh 
+./test.sh: line 3: a: unbound variable
+++ <span class="nb">echo</span> <span class="s1">'pipe chain failed'</span>
+pipe chain failed
+++ <span class="nb">echo</span> <span class="s1">'but I execute'</span>
+but I execute</code></pre></figure>
+
+<noscript><pre>400: Invalid request</pre></noscript>
+<script src="https://gist.github.com/c3016ad398b86686d737f042298aac80.js"> </script>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_pipefail.sh 
+./test.sh: line 3: a: unbound variable
+++ <span class="nb">echo</span> <span class="s1">'pipe chain failed'</span>
+pipe chain failed
+
+arun@home:~<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$?</span>
+1</code></pre></figure>
+
+<p>the echo $? is a special variable in bash that shows the exit code of last run command.</p>]]></content><author><name>Arun Varghese</name></author><category term="script" /><category term="bash" /><category term="script" /><category term="bash" /><category term="best-practices" /><summary type="html"><![CDATA[Bash script best practices - How to write safe shell scripts]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2019-11-13-write-safe-shell-scripts/terminal.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2019-11-13-write-safe-shell-scripts/terminal.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to remove file in linux using regex</title><link href="http://0.0.0.0:4000/2019-07-19-how-to-remove-files-using-regex/" rel="alternate" type="text/html" title="How to remove file in linux using regex" /><published>2019-07-19T19:20:00-04:00</published><updated>2019-07-19T19:20:00-04:00</updated><id>http://0.0.0.0:4000/how-to-remove-files-using-regex</id><content type="html" xml:base="http://0.0.0.0:4000/2019-07-19-how-to-remove-files-using-regex/"><![CDATA[<h2 id="deleting-older-files-within-a-date-range">Deleting older files within a date range</h2>
+
+<p>Generally compressed log files created by utilities contain a date in the filename.
+For cleaning such accumulated compressed files we can use <code class="language-plaintext highlighter-rouge">rm</code> command with regex.</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh"><span class="nv">$ </span><span class="nb">ls
+
+</span>2013-12-23-nginx.tar.gz                2016-04-29-nginx.tar.gz
+2013-12-24-nginx.tar.gz                2016-05-21-nginx.tar.gz
+2016-04-19-nginx.tar.gz                2016-05-22-nginx.tar.gz
+2016-04-20-nginx.tar.gz                2016-05-23-nginx.tar.gz
+2016-04-21-nginx.tar.gz                2016-05-24-nginx.tar.gz
+2016-04-22-nginx.tar.gz                2016-05-25-nginx.tar.gz
+2016-04-23-nginx.tar.gz                2016-06-11-nginx.tar.gz
+2016-04-24-nginx.tar.gz                2016-06-12-nginx.tar.gz
+2016-04-25-nginx.tar.gz                2016-06-13-nginx.tar.gz
+2016-04-26-nginx.tar.gz                2016-12-24-nginx.tar.gz
+2016-04-27-nginx.tar.gz                2019-07-20-nginx.tar.gz
+2016-04-28-nginx.tar.gz
+
+
+<span class="nv">$ </span><span class="nb">rm </span>201[3-6]<span class="k">*</span></code></pre></figure>]]></content><author><name>Arun Varghese</name></author><category term="regex" /><category term="linux" /><category term="bash" /><category term="script" /><category term="regex" /><summary type="html"><![CDATA[Deleting older files within a date range]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2019-08-11-how-to-remove-files-using-regex/files.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2019-08-11-how-to-remove-files-using-regex/files.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

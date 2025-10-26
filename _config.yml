@@ -1,0 +1,93 @@
+title: "Arun Varghese"
+description: "DevOps • Cloud • Full‑stack"
+url: "https://mushycode.in"
+baseurl: ""
+
+# Theme base
+remote_theme: daattali/beautiful-jekyll@6.0.1
+
+# Permalinks
+permalink: /:year-:month-:day-:title/
+
+# Author/Site metadata
+author: "Arun Varghese"
+avatar: "/assets/img/avatar.jpg"
+
+# Custom CSS
+site-css: /assets/css/custom-styles.css
+
+# Excerpt length for blog posts
+excerpt_length: 50
+
+# Plugins
+plugins:
+  - jekyll-remote-theme
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-include-cache
+  - jekyll-gist
+
+# Collections
+collections:
+  projects:
+    output: true
+    permalink: /projects/:slug/
+
+# Pagination (jekyll-paginate)
+paginate: 8
+paginate_path: "/blog/page:num/"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      share-description: ""
+      image: /assets/img/og-default.jpg
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: project
+      image: /assets/img/project-default.jpg
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+
+# Navigation
+navbar-links:
+  Blog: "blog"
+  Projects: "projects"
+  Services: "services"
+  About: "about"
+  Contact: "contact"
+
+# SEO
+social:
+  name: "Arun Varghese"
+  links:
+    - https://github.com/arun-var
+    - https://www.linkedin.com/in/arun-var/
+    - https://x.com/mushyinks
+
+# Feeds & sitemap
+feed:
+  path: atom.xml
+
+# Excludes
+exclude:
+  - "README.md"
+  - "node_modules"
+  - "package.json"
+  - "package-lock.json"
+
+# Time
+timezone: "America/Toronto"

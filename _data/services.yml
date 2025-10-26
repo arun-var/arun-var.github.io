@@ -1,0 +1,28 @@
+- title: DevOps Accelerator (4 weeks)
+  description: "Foundational CI/CD, IaC, and observability for your product."
+  deliverables:
+    - GitHub Actions or Jenkins CI
+    - Terraform baseline (VPC, ECS/EKS, RDS)
+    - Logging & Metrics (CloudWatch / OpenTelemetry)
+    - Cost guardrails and runbooks
+  cta:
+    label: Get a quote
+    url: /contact/
+- title: Cloud Readiness Audit
+  description: "Architecture review with concrete improvements and a 30–60–90 plan."
+  deliverables:
+    - Architecture diagram + scorecard
+    - Security, reliability, and cost analysis
+    - Risk register and remediation plan
+  cta:
+    label: Book now
+    url: /contact/
+- title: SRE On-Call Hardening
+  description: "Reduce pager fatigue with SLOs, alerts, and runbooks that work."
+  deliverables:
+    - SLOs & error budgets
+    - Alert policy & dashboards
+    - Incident response playbooks
+  cta:
+    label: Talk to me
+    url: /contact/

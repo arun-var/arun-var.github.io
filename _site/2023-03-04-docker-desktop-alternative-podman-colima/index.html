@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 6.0.1 | Copyright Dean Attali 2023 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>Podman and Colima as docker desktop alternatives for enterprise users</title>
+
+  
+  <meta name="author" content="Arun Varghese">
+  
+
+  <meta name="description" content="">
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/custom-styles.css">
+    
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="Arun Varghese">
+  <meta property="og:title" content="Podman and Colima as docker desktop alternatives for enterprise users">
+  <meta property="og:description" content="">
+
+  
+  <meta property="og:image" content="http://0.0.0.0:4000/assets/img/avatar.jpg">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="Arun Varghese">
+  <meta property="og:article:published_time" content="2023-03-04T00:00:00-05:00">
+  <meta property="og:url" content="http://0.0.0.0:4000/2023-03-04-docker-desktop-alternative-podman-colima/">
+  <link rel="canonical" href="http://0.0.0.0:4000/2023-03-04-docker-desktop-alternative-podman-colima/">
+  
+
+  
+  <meta name="twitter:card" content="summary">
+  
+  <meta name="twitter:site" content="@">
+  <meta name="twitter:creator" content="@">
+
+  <meta property="twitter:title" content="Podman and Colima as docker desktop alternatives for enterprise users">
+  <meta property="twitter:description" content="">
+
+  
+  <meta name="twitter:image" content="http://0.0.0.0:4000/assets/img/avatar.jpg">
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="http://0.0.0.0:4000/">Arun Varghese</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/projects">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">Contact</a>
+          </li></ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="http://0.0.0.0:4000/">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/assets/img/avatar.jpg" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="post-heading">
+          <h1>Podman and Colima as docker desktop alternatives for enterprise users</h1>
+          
+
+          
+            <span class="post-meta">Posted on March 4, 2023</span>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+
+      
+
+      
+
+      <article role="main" class="blog-post">
+        <h1 id="docker-desktop-alternatives-for-enterprise-users">Docker Desktop Alternatives for Enterprise Users</h1>
+
+<p>Docker has changed its <a href="https://www.docker.com/pricing/">Service Agreement</a> and requires a paid subscription for Docker Desktop. It is a popular tool used by many developers to manage containers on their Mac. However, some users may want to explore alternatives to Docker Desktop / Docker for various reasons, such as performance issues or the desire for daemonless docker. Two possible alternatives to Docker Desktop on a Mac are <a href="https://podman.io/">Podman</a> and <a href="https://github.com/abiosoft/colima">Colima</a>. In this blog, I just wanted to quickly document my experience on try out these two alternatives as well as the pros and cons of each.</p>
+
+<h2 id="replacing-docker-desktop-with-podman-on-mac">Replacing Docker Desktop with Podman on Mac</h2>
+
+<p>Podman is a container management tool that allows users to manage containers without requiring a daemon to be running in the background. It is an open-source project developed by Red Hat and provides a CLI that is compatible with Docker.</p>
+
+<p>Install Podman: Podman can be installed on a Mac using Homebrew. Open a terminal window and enter the following commands:</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">brew <span class="nb">install </span>podman
+
+brew <span class="nb">install </span>podman-completion</code></pre></figure>
+
+<p>This will install Podman and its completion script.</p>
+
+<p>Start using Podman: Once Podman is installed, you can start using it to manage your containers. To run a container, use the podman run command. For example, to run a simple hello-world container, enter the following command in the terminal:</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">podman run hello-world</code></pre></figure>
+
+<h2 id="pros-and-cons-of-podman">Pros and Cons of Podman</h2>
+
+<h3 id="pros">Pros:</h3>
+
+<ul>
+  <li>Podman does not require a daemon to be running in the background, which can improve performance and security.</li>
+  <li>Podman provides a Docker-compatible CLI, making it easy to switch from Docker to Podman.</li>
+  <li>Podman supports rootless containers, which allows non-root users to run containers.</li>
+</ul>
+
+<h3 id="cons">Cons:</h3>
+
+<ul>
+  <li>Podman is not as widely used as Docker, so finding support or tutorials may be more difficult.</li>
+  <li>Podman does not currently support Docker Compose, although this may change in the future.</li>
+</ul>
+
+<p>Note: I had issues with volume mounting in podman, but looks like passing the mount to podman machine during its creation fixes it.
+For ex,</p>
+
+<figure class="highlight"><pre><code class="language-sh" data-lang="sh">podman machine init <span class="nt">--disk-size</span> 20 <span class="nt">-v</span> <span class="se">\$</span>HOME:<span class="nv">$HOME</span>
+
+podman machine start</code></pre></figure>
+
+<h2 id="replacing-docker-desktop-with-colima-on-mac">Replacing Docker Desktop with Colima on Mac</h2>
+
+<p>Colima is a Docker and Kubernetes development environment for Mac. It is built on top of macOS Hypervisor framework and provides a lightweight, native experience for managing containers.</p>
+
+<p>To replace Docker Desktop with Colima on a Mac, follow these steps:</p>
+
+<p>Install Colima: Colima can be downloaded from the official website. Once downloaded, open the DMG file and drag the Colima app to the Applications folder.</p>
+
+<p>Start using Colima: Once Colima is installed, open the app and follow the setup instructions. You can then start using Colima to manage your containers.</p>
+
+<h2 id="pros-and-cons-of-colima">Pros and Cons of Colima</h2>
+
+<h3 id="pros-1">Pros:</h3>
+
+<ul>
+  <li>Colima provides a lightweight, native experience for managing containers on a Mac.</li>
+  <li>Colima supports Docker Compose and Kubernetes, making it a versatile tool for container management.</li>
+  <li>Colima provides a web-based interface for managing containers, which can be more user-friendly than a CLI.</li>
+</ul>
+
+<h3 id="cons-1">Cons:</h3>
+
+<ul>
+  <li>Colima is a relatively new tool and may have bugs or compatibility issues.
+C- olima is not as widely used as Docker, so finding support or tutorials may be more difficult.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>Replacing Docker Desktop with Podman or Colima on a Mac is relatively easy, and both tools offer certain pros and cons. Podman is a lightweight tool that provides a Docker-compatible CLI, while Colima provides a native, web-based interface for managing containers. Ultimately, the choice of which tool to use depends on the user.</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/tags#docker">docker</a>
+          
+            <a href="/tags#docker-desktop">docker-desktop</a>
+          
+            <a href="/tags#mac">mac</a>
+          
+            <a href="/tags#colima">colima</a>
+          
+            <a href="/tags#podman">podman</a>
+          
+        </div>
+      
+
+      
+
+      
+
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/2020-05-30-fix-sectigo-expired-cert/" data-toggle="tooltip" data-placement="top" title="Lessons from Sectigo&apos;s Expired Certificates">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="page-item next">
+          <a class="page-link" href="/2025-10-22-welcome/" data-toggle="tooltip" data-placement="top" title="Hello, world — new site">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+      
+
+    </div>
+  </div>
+</div>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"></ul>
+
+      
+      <p class="copyright text-muted">
+      
+        Arun Varghese
+        &nbsp;&bull;&nbsp;
+      
+      2025
+
+      
+
+      
+
+      
+
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>

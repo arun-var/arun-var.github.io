@@ -1,0 +1,82 @@
+/* Custom variables & overrides */
+:root {
+  --brand: #0f766e;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.hero {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.btn {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--brand);
+  color: white;
+  border-color: var(--brand);
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.grid--cards {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.card {
+  border: 1px solid #eee;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.muted {
+  color: #666;
+}
+
+.wrapper {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.site-header, .site-footer {
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+  padding: 0.75rem 0;
+}
+
+.site-nav a {
+  margin-left: 1rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+/*# sourceMappingURL=custom-styles.css.map */
