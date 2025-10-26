@@ -1,4 +1,4 @@
-title: "Arun Varghese"
+title: "AV"
 description: "DevOps • Cloud • Full‑stack"
 url: "https://mushycode.in"
 baseurl: ""
@@ -10,7 +10,8 @@ remote_theme: daattali/beautiful-jekyll@6.0.1
 permalink: /:year-:month-:day-:title/
 
 # Author/Site metadata
-author: "Arun Varghese"
+author: "AV"
+email: "av@mushycode.in"  # Replace with your actual email
 avatar: "/assets/img/avatar.jpg"
 
 # Custom CSS
@@ -53,7 +54,7 @@ defaults:
       path: ""
       type: "projects"
     values:
-      layout: project
+      layout: page
       image: /assets/img/project-default.jpg
 
 # Build settings
@@ -72,7 +73,7 @@ navbar-links:
 
 # SEO
 social:
-  name: "Arun Varghese"
+  name: "AV"
   links:
     - https://github.com/arun-var
     - https://www.linkedin.com/in/arun-var/

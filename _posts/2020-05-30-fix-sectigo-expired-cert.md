@@ -1,14 +1,18 @@
 ---
 layout: post
-title: "Lessons from Sectigo's Expired Certificates"
-date:  2020-05-30 20:43:52
-categories: ssl
-tags: ssl issues sectigo certificates ssl-expiry
-image: /assets/article_images/2020-05-30-fix-sectigo-expired-cert/ssl.JPG
+title: "Sectigo Certificate Expired? Root Cause & Fixes"
+description: "Debug Sectigo/TLS outages: broken chains, why some clients fail, fast server fixes, and proactive monitoring to prevent the next expiry incident."
+tags: [TLS, SSL, Certificates, Sectigo, PKI, Security, Monitoring]
+categories: [ tech ]
+permalink: /2020-05-30-fix-sectigo-expired-cert
+author: "Arun"
 ---
 
-## Lessons from Sectigo's Expired Certificates - Why it is important to validate SSL certificate chain and not just root SSL certificate in monitoring systems
-<br />
+# Sectigo Certificate Expired? Root Cause, Fixes, and Monitoring
+
+Seeing **SSL/TLS errors** after a **Sectigo certificate expired**? The root cause is often a **broken chain**—your server is serving an outdated intermediate while your leaf cert remains valid. Here’s how expiry ripples through clients, how to patch servers fast, and how to monitor so it doesn’t happen again. This ‘Sectigo certificate expired’ incidents trace back to a mismatched SSL chain served by the web server.
+
+## What actually expired
 
 ### How it all started today?
 Today we noticed that in some of our applications connection to our internal API's are failing with the following error messages -
@@ -24,22 +28,67 @@ SSL_shutdown() failed (SSL: error:140E0197:SSL routines:SSL_shutdown:shutdown wh
 API's health check from browser did not show any issue, all seemed fine. Infact, the SSL certificate was not expiring before 2021. So what was causing this issue? Upon further investigation it was found that one of the intermediate certificate in the certificate chain has expired!
 Sectigo's External CA root expired and thus our certifactes had issues.
 
-### How did we fix it?
-The fix was to update our full certificate file with the new roots. In our case, it looked like the following -
+## why chains matter 
 
+- A chain problem can break strict clients (WAFs, firewalls, Java apps) even when modern browsers appear fine.
+- Browsers may fetch alternative chains automatically; network devices typically won’t.
+- The practical fix: **install the correct intermediate bundle** and verify end‑to‑end.
+
+## Why some clients fail while others keep working
+
+- **Servers can ship different chains.** If your bundle includes an obsolete intermediate, strict clients fail path validation.
+- **Path building differs per client.** Some validate only what the server presents; others attempt alternate paths.
+- **Caches & truststores**: devices or apps may pin old chains or cache them for long periods.
+
+## Fast fix (copy‑paste runbook)
+
+### 1) Inspect the served chain
+```bash
+echo | openssl s_client -connect example.com:443 -servername example.com -showcerts 2>/dev/null | openssl x509 -noout -issuer -subject -enddate
 ```
-1. Subject CN: *.ourdomain.com > Issuer CN: Sectigo RSA Domain Validation Secure Server CA
-2. Subject CN: Sectigo RSA Domain Validation Secure Server CA > Issuer CN: USERTrust RSA Certification Authority
-3. Subject CN: USERTrust RSA Certification Authority > Issuer CN: AddTrust External CA Root
-4. Subject CN: AddTrust External CA Root > Issuer CN: AddTrust External CA Root
+- Confirm the **issuer** and **enddate** for each cert; look for expired intermediates.
+
+### 2) Install the correct intermediate bundle
+- Download the current Sectigo intermediate for your leaf certificate family.
+- Update your web server’s chain:
+  - **Nginx:** concatenate leaf + intermediate(s) in the chain file you reference.
+  - **Apache:** use `SSLCertificateFile` for leaf and `SSLCertificateChainFile` (or bundle) for intermediates.
+- Reload gracefully and verify again.
+
+### 3) Clear stale caches
+- Restart downstream proxies/load balancers that cache certificate chains.
+- For Java applications, update any manually imported truststores.
+
+### 4) Re‑verify the connection
+```bash
+openssl s_client -connect example.com:443 -servername example.com -verify_return_error
 ```
+- Expect `verify return code: 0 (ok)`.
 
-We updated the new UserTrust certs for Sectigo from [this link](https://support.sectigo.com/articles/Knowledge/Sectigo-AddTrust-External-CA-Root-Expiring-May-30-2020).
+## Proactive monitoring that catches chain failures
 
-The modern root certificates are availble under the heading **USERTrust RSA Certification Authority**. A couple of sections below the cross certificates are also availble.
+- **Synthetic checks** for both **leaf and intermediate** expiries (30/15/7‑day thresholds).
+- Assert the **expected issuer fingerprint** so mismatched chains alert you early.
+- Test from multiple client types: a **headless browser** and a **strict OpenSSL/Java** client.
+- Add dashboards with **Days to Expiry** for leaf vs chain side by side.
 
-The certificates need not be re-issued and can be updated with these new ones. In our case 3 and 4 in the full chain were replaced.
+## Hardening issuance and renewals
 
-Hope this helps someone. Let me know in case there is some correction.
+- Automate renewals (ACME/Certbot for public endpoints; private PKI for internal).
+- Keep an internal “**bundle source of truth**” with fingerprints and download URLs.
+- For CDNs/WAFs, plan rotation windows and validate in a pre‑prod distribution.
 
+## FAQ
 
+**Why does Chrome work but my firewall says “expired”?**  
+Your server likely shipped an outdated intermediate. Browsers may find a newer path; the firewall uses what you served. Install the correct bundle and retest.
+
+**Should I rely on dynamic AIA fetching?**  
+Treat it as a safety net, not a guarantee. Always bundle the correct chain on the server.
+
+**How often do I need to renew?**  
+Public TLS lifespans are short; automate renewals and alert well ahead of expiry.
+
+## Conclusion
+
+Treat certificate **chains** as first‑class confg. To avoid the next ‘Sectigo certificate expired’ page, monitor both leaf and chain expiries and verify the served bundle.

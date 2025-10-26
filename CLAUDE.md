@@ -22,12 +22,22 @@ bundle exec jekyll build
 # Output in _site/ directory
 ```
 
-### Docker Alternative
+### Docker Development (Recommended)
 ```bash
-# Build and run via Docker
+# Build Docker image (one-time setup)
 docker build -t jekyll-site .
-docker run -p 4000:4000 -v $(pwd):/usr/src/myapp jekyll-site
+
+# Run with live reload (mounts current directory)
+docker run -p 4000:4000 -p 35729:35729 -v $(pwd):/usr/src/myapp jekyll-site
+# Site available at http://127.0.0.1:4000 with live reload
+
+# Build site only (output to _site/)
+docker run -v $(pwd):/usr/src/myapp jekyll-site bundle exec jekyll build
 ```
+
+**Note**:
+- The `-v $(pwd):/usr/src/myapp` flag mounts your local directory into the container, enabling live reload when you edit files locally.
+- Port `35729` is for Jekyll's live reload WebSocket connection.
 
 ## Architecture
 
@@ -45,11 +55,11 @@ The site uses **Beautiful Jekyll** (v6.0.1) as a remote theme with minimal local
 
 #### Collections
 - **Posts** (`_posts/`): Blog articles using `YYYY-MM-DD-title.md` naming convention
-  - Layout: `post` (defined in `_layouts/post.html`)
+  - Layout: `post` (from Beautiful Jekyll theme)
   - Default image: `/assets/img/og-default.jpg`
 
 - **Projects** (`_projects/`): Portfolio projects collection
-  - Layout: `project` (defined in `_layouts/project.html`)
+  - Layout: `page` (from Beautiful Jekyll theme)
   - Default image: `/assets/img/project-default.jpg`
   - Output: true (generates individual pages at `/projects/:slug/`)
 
@@ -109,10 +119,11 @@ Use simple string values for single pages, or nested hashes for dropdown menus.
    ```yaml
    ---
    title: "Project Name"
-   description: "Short description"
+   excerpt: "Short description"
    image: /assets/img/project-image.jpg  # optional
    ---
    ```
+   Note: Projects use the `page` layout from Beautiful Jekyll. The layout is set automatically via `_config.yml` defaults.
 
 ### Modifying Services
 Edit `_data/services.yml` following the existing structure with title, description, deliverables array, and CTA object.

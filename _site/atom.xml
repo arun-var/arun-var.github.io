@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://0.0.0.0:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-10-25T23:18:58-04:00</updated><id>http://0.0.0.0:4000/atom.xml</id><title type="html">Arun Varghese</title><subtitle>DevOps • Cloud • Full‑stack</subtitle><author><name>Arun Varghese</name></author><entry><title type="html">Hello, world — new site</title><link href="http://0.0.0.0:4000/2025-10-22-welcome/" rel="alternate" type="text/html" title="Hello, world — new site" /><published>2025-10-22T00:00:00-04:00</published><updated>2025-10-22T00:00:00-04:00</updated><id>http://0.0.0.0:4000/welcome</id><content type="html" xml:base="http://0.0.0.0:4000/2025-10-22-welcome/"><![CDATA[<p>First post on my new Jekyll site. I’ll share notes on AWS, Kubernetes, CI/CD, and indie‑hacking.</p>]]></content><author><name>Arun Varghese</name></author><category term="devops" /><category term="jekyll" /><summary type="html"><![CDATA[First post on my new Jekyll site. I’ll share notes on AWS, Kubernetes, CI/CD, and indie‑hacking.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/img/og-default.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/img/og-default.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Docker Desktop Alternatives: Podman vs Colima</title><link href="http://0.0.0.0:4000/docker-desktop-alternative-podman-colima" rel="alternate" type="text/html" title="Docker Desktop Alternatives: Podman vs Colima" /><published>2023-03-04T00:00:00-05:00</published><updated>2023-03-04T00:00:00-05:00</updated><id>http://0.0.0.0:4000/docker-desktop-alternative-podman-colima</id><content type="html" xml:base="http://0.0.0.0:4000/docker-desktop-alternative-podman-colima"><![CDATA[<h1 id="docker-desktop-alternatives-podman-vs-colima-2025">Docker Desktop Alternatives: Podman vs Colima (2025)</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://0.0.0.0:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-10-26T11:47:45-04:00</updated><id>http://0.0.0.0:4000/atom.xml</id><title type="html">AV</title><subtitle>DevOps • Cloud • Full‑stack</subtitle><author><name>AV</name></author><entry><title type="html">Docker Desktop Alternatives: Podman vs Colima</title><link href="http://0.0.0.0:4000/docker-desktop-alternative-podman-colima" rel="alternate" type="text/html" title="Docker Desktop Alternatives: Podman vs Colima" /><published>2023-03-04T00:00:00-05:00</published><updated>2023-03-04T00:00:00-05:00</updated><id>http://0.0.0.0:4000/docker-desktop-alternative-podman-colima</id><content type="html" xml:base="http://0.0.0.0:4000/docker-desktop-alternative-podman-colima"><![CDATA[<h1 id="docker-desktop-alternatives-podman-vs-colima">Docker Desktop Alternatives: Podman vs Colima</h1>
 
-<p>If you’re evaluating <strong>Docker Desktop alternatives</strong> on macOS in 2025, <strong>Podman</strong> and <strong>Colima</strong> are the most practical choices. Both keep a Docker‑compatible developer experience, avoid licensing friction, and work well for enterprises with tighter security policies. This guide compares <strong>Podman vs Colima</strong>, shows quick-start commands, and highlights platform-engineering trade‑offs. <em>(Keyword mention: Docker Desktop alternatives.)</em></p>
+<p>If you’re evaluating <strong>Docker Desktop alternatives</strong> on macOS in 2025, <strong>Podman</strong> and <strong>Colima</strong> are the most practical choices. Both keep a Docker‑compatible developer experience, avoid licensing friction, and work well for enterprises with tighter security policies. This guide compares <strong>Podman vs Colima</strong>, shows quick-start commands, and highlights platform-engineering trade‑offs. If you’re searching for a Docker Desktop alternative for Mac, this Podman vs Colima breakdown covers setup, performance, and k8s.</p>
 
 <h2 id="tldr">TL;DR</h2>
 
@@ -127,8 +127,11 @@ Yes; you can choose Docker or containerd depending on your toolchain needs.</p>
 
 <h2 id="conclusion">Conclusion</h2>
 
-<p>The best <strong>Docker Desktop alternative</strong> is the one that removes friction for your team. In 2025, <strong>Colima</strong> is a safe default for Mac laptops; <strong>Podman</strong> shines where daemonless, rootless security is a mandate. Script the workflow, document it in your repo, and ship.</p>]]></content><author><name>Arun</name></author><category term="Docker" /><category term="Docker" /><category term="Podman" /><category term="Colima" /><category term="macOS" /><category term="Kubernetes" /><category term="DevOps" /><category term="Containers" /><summary type="html"><![CDATA[Compare Podman and Colima as Docker Desktop alternatives on macOS, performance, Kubernetes, enterprise fit, and pitfalls.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/img/og-default.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/img/og-default.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Lessons from Sectigo’s Expired Certificates</title><link href="http://0.0.0.0:4000/2020-05-30-fix-sectigo-expired-cert/" rel="alternate" type="text/html" title="Lessons from Sectigo’s Expired Certificates" /><published>2020-05-30T16:43:52-04:00</published><updated>2020-05-30T16:43:52-04:00</updated><id>http://0.0.0.0:4000/fix-sectigo-expired-cert</id><content type="html" xml:base="http://0.0.0.0:4000/2020-05-30-fix-sectigo-expired-cert/"><![CDATA[<h2 id="lessons-from-sectigos-expired-certificates---why-it-is-important-to-validate-ssl-certificate-chain-and-not-just-root-ssl-certificate-in-monitoring-systems">Lessons from Sectigo’s Expired Certificates - Why it is important to validate SSL certificate chain and not just root SSL certificate in monitoring systems</h2>
-<p><br /></p>
+<p>The best <strong>Docker Desktop alternative</strong> is the one that removes friction for your team. For most teams, Colima is the simplest of the Docker Desktop alternatives, while Podman wins where rootless security is mandatory.</p>]]></content><author><name>Arun</name></author><category term="tech" /><category term="Docker" /><category term="Podman" /><category term="Colima" /><category term="macOS" /><category term="Kubernetes" /><category term="DevOps" /><category term="Containers" /><summary type="html"><![CDATA[Compare Podman and Colima as Docker Desktop alternatives on macOS, performance, Kubernetes, enterprise fit, and pitfalls.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/img/og-default.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/img/og-default.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Sectigo Certificate Expired? Root Cause &amp;amp; Fixes</title><link href="http://0.0.0.0:4000/2020-05-30-fix-sectigo-expired-cert" rel="alternate" type="text/html" title="Sectigo Certificate Expired? Root Cause &amp;amp; Fixes" /><published>2020-05-30T00:00:00-04:00</published><updated>2020-05-30T00:00:00-04:00</updated><id>http://0.0.0.0:4000/fix-sectigo-expired-cert</id><content type="html" xml:base="http://0.0.0.0:4000/2020-05-30-fix-sectigo-expired-cert"><![CDATA[<h1 id="sectigo-certificate-expired-root-cause-fixes-and-monitoring">Sectigo Certificate Expired? Root Cause, Fixes, and Monitoring</h1>
+
+<p>Seeing <strong>SSL/TLS errors</strong> after a <strong>Sectigo certificate expired</strong>? The root cause is often a <strong>broken chain</strong>—your server is serving an outdated intermediate while your leaf cert remains valid. Here’s how expiry ripples through clients, how to patch servers fast, and how to monitor so it doesn’t happen again. This ‘Sectigo certificate expired’ incidents trace back to a mismatched SSL chain served by the web server.</p>
+
+<h2 id="what-actually-expired">What actually expired</h2>
 
 <h3 id="how-it-all-started-today">How it all started today?</h3>
 <p>Today we noticed that in some of our applications connection to our internal API’s are failing with the following error messages -</p>
@@ -142,22 +145,87 @@ Yes; you can choose Docker or containerd depending on your toolchain needs.</p>
 <p>API’s health check from browser did not show any issue, all seemed fine. Infact, the SSL certificate was not expiring before 2021. So what was causing this issue? Upon further investigation it was found that one of the intermediate certificate in the certificate chain has expired!
 Sectigo’s External CA root expired and thus our certifactes had issues.</p>
 
-<h3 id="how-did-we-fix-it">How did we fix it?</h3>
-<p>The fix was to update our full certificate file with the new roots. In our case, it looked like the following -</p>
+<h2 id="why-chains-matter">why chains matter</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Subject CN: *.ourdomain.com &gt; Issuer CN: Sectigo RSA Domain Validation Secure Server CA
-2. Subject CN: Sectigo RSA Domain Validation Secure Server CA &gt; Issuer CN: USERTrust RSA Certification Authority
-3. Subject CN: USERTrust RSA Certification Authority &gt; Issuer CN: AddTrust External CA Root
-4. Subject CN: AddTrust External CA Root &gt; Issuer CN: AddTrust External CA Root
+<ul>
+  <li>A chain problem can break strict clients (WAFs, firewalls, Java apps) even when modern browsers appear fine.</li>
+  <li>Browsers may fetch alternative chains automatically; network devices typically won’t.</li>
+  <li>The practical fix: <strong>install the correct intermediate bundle</strong> and verify end‑to‑end.</li>
+</ul>
+
+<h2 id="why-some-clients-fail-while-others-keep-working">Why some clients fail while others keep working</h2>
+
+<ul>
+  <li><strong>Servers can ship different chains.</strong> If your bundle includes an obsolete intermediate, strict clients fail path validation.</li>
+  <li><strong>Path building differs per client.</strong> Some validate only what the server presents; others attempt alternate paths.</li>
+  <li><strong>Caches &amp; truststores</strong>: devices or apps may pin old chains or cache them for long periods.</li>
+</ul>
+
+<h2 id="fast-fix-copypaste-runbook">Fast fix (copy‑paste runbook)</h2>
+
+<h3 id="1-inspect-the-served-chain">1) Inspect the served chain</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> | openssl s_client <span class="nt">-connect</span> example.com:443 <span class="nt">-servername</span> example.com <span class="nt">-showcerts</span> 2&gt;/dev/null | openssl x509 <span class="nt">-noout</span> <span class="nt">-issuer</span> <span class="nt">-subject</span> <span class="nt">-enddate</span>
 </code></pre></div></div>
+<ul>
+  <li>Confirm the <strong>issuer</strong> and <strong>enddate</strong> for each cert; look for expired intermediates.</li>
+</ul>
 
-<p>We updated the new UserTrust certs for Sectigo from <a href="https://support.sectigo.com/articles/Knowledge/Sectigo-AddTrust-External-CA-Root-Expiring-May-30-2020">this link</a>.</p>
+<h3 id="2-install-the-correct-intermediate-bundle">2) Install the correct intermediate bundle</h3>
+<ul>
+  <li>Download the current Sectigo intermediate for your leaf certificate family.</li>
+  <li>Update your web server’s chain:
+    <ul>
+      <li><strong>Nginx:</strong> concatenate leaf + intermediate(s) in the chain file you reference.</li>
+      <li><strong>Apache:</strong> use <code class="language-plaintext highlighter-rouge">SSLCertificateFile</code> for leaf and <code class="language-plaintext highlighter-rouge">SSLCertificateChainFile</code> (or bundle) for intermediates.</li>
+    </ul>
+  </li>
+  <li>Reload gracefully and verify again.</li>
+</ul>
 
-<p>The modern root certificates are availble under the heading <strong>USERTrust RSA Certification Authority</strong>. A couple of sections below the cross certificates are also availble.</p>
+<h3 id="3-clear-stale-caches">3) Clear stale caches</h3>
+<ul>
+  <li>Restart downstream proxies/load balancers that cache certificate chains.</li>
+  <li>For Java applications, update any manually imported truststores.</li>
+</ul>
 
-<p>The certificates need not be re-issued and can be updated with these new ones. In our case 3 and 4 in the full chain were replaced.</p>
+<h3 id="4-reverify-the-connection">4) Re‑verify the connection</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl s_client <span class="nt">-connect</span> example.com:443 <span class="nt">-servername</span> example.com <span class="nt">-verify_return_error</span>
+</code></pre></div></div>
+<ul>
+  <li>Expect <code class="language-plaintext highlighter-rouge">verify return code: 0 (ok)</code>.</li>
+</ul>
 
-<p>Hope this helps someone. Let me know in case there is some correction.</p>]]></content><author><name>Arun Varghese</name></author><category term="ssl" /><category term="ssl" /><category term="issues" /><category term="sectigo" /><category term="certificates" /><category term="ssl-expiry" /><summary type="html"><![CDATA[Lessons from Sectigo’s Expired Certificates - Why it is important to validate SSL certificate chain and not just root SSL certificate in monitoring systems]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2020-05-30-fix-sectigo-expired-cert/ssl.JPG" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2020-05-30-fix-sectigo-expired-cert/ssl.JPG" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Commonly used Elasticsearch REST APIs at work</title><link href="http://0.0.0.0:4000/2020-05-13-useful-elasticsearch-rest-apis/" rel="alternate" type="text/html" title="Commonly used Elasticsearch REST APIs at work" /><published>2020-05-13T09:13:55-04:00</published><updated>2020-05-13T09:13:55-04:00</updated><id>http://0.0.0.0:4000/useful-elasticsearch-rest-apis</id><content type="html" xml:base="http://0.0.0.0:4000/2020-05-13-useful-elasticsearch-rest-apis/"><![CDATA[<h2 id="helpful-elasticsearch-apis">Helpful Elasticsearch APIs</h2>
+<h2 id="proactive-monitoring-that-catches-chain-failures">Proactive monitoring that catches chain failures</h2>
+
+<ul>
+  <li><strong>Synthetic checks</strong> for both <strong>leaf and intermediate</strong> expiries (30/15/7‑day thresholds).</li>
+  <li>Assert the <strong>expected issuer fingerprint</strong> so mismatched chains alert you early.</li>
+  <li>Test from multiple client types: a <strong>headless browser</strong> and a <strong>strict OpenSSL/Java</strong> client.</li>
+  <li>Add dashboards with <strong>Days to Expiry</strong> for leaf vs chain side by side.</li>
+</ul>
+
+<h2 id="hardening-issuance-and-renewals">Hardening issuance and renewals</h2>
+
+<ul>
+  <li>Automate renewals (ACME/Certbot for public endpoints; private PKI for internal).</li>
+  <li>Keep an internal “<strong>bundle source of truth</strong>” with fingerprints and download URLs.</li>
+  <li>For CDNs/WAFs, plan rotation windows and validate in a pre‑prod distribution.</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+
+<p><strong>Why does Chrome work but my firewall says “expired”?</strong><br />
+Your server likely shipped an outdated intermediate. Browsers may find a newer path; the firewall uses what you served. Install the correct bundle and retest.</p>
+
+<p><strong>Should I rely on dynamic AIA fetching?</strong><br />
+Treat it as a safety net, not a guarantee. Always bundle the correct chain on the server.</p>
+
+<p><strong>How often do I need to renew?</strong><br />
+Public TLS lifespans are short; automate renewals and alert well ahead of expiry.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Treat certificate <strong>chains</strong> as first‑class confg. To avoid the next ‘Sectigo certificate expired’ page, monitor both leaf and chain expiries and verify the served bundle.</p>]]></content><author><name>Arun</name></author><category term="tech" /><category term="TLS" /><category term="SSL" /><category term="Certificates" /><category term="Sectigo" /><category term="PKI" /><category term="Security" /><category term="Monitoring" /><summary type="html"><![CDATA[Debug Sectigo/TLS outages: broken chains, why some clients fail, fast server fixes, and proactive monitoring to prevent the next expiry incident.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/img/og-default.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/img/og-default.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Commonly used Elasticsearch REST APIs at work</title><link href="http://0.0.0.0:4000/2020-05-13-useful-elasticsearch-rest-apis/" rel="alternate" type="text/html" title="Commonly used Elasticsearch REST APIs at work" /><published>2020-05-13T09:13:55-04:00</published><updated>2020-05-13T09:13:55-04:00</updated><id>http://0.0.0.0:4000/useful-elasticsearch-rest-apis</id><content type="html" xml:base="http://0.0.0.0:4000/2020-05-13-useful-elasticsearch-rest-apis/"><![CDATA[<h2 id="helpful-elasticsearch-apis">Helpful Elasticsearch APIs</h2>
 
 <p>This is a simple post listing the Elasticsearch rest APIs that I use most at work.</p>
 
@@ -232,7 +300,7 @@ Sectigo’s External CA root expired and thus our certifactes had issues.</p>
 }
 '</span></code></pre></figure>
 
-<p>PS: I will add description for each soon</p>]]></content><author><name>Arun Varghese</name></author><category term="elasticsearch" /><category term="elasticsearch" /><category term="rest-api" /><summary type="html"><![CDATA[Helpful Elasticsearch APIs]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2020-05-13-useful-elasticsearch-rest-apis/elasticsearch.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2020-05-13-useful-elasticsearch-rest-apis/elasticsearch.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Understanding docker layers and overlay filesystem</title><link href="http://0.0.0.0:4000/2019-11-19-docker-layers-and-overlay-fs/" rel="alternate" type="text/html" title="Understanding docker layers and overlay filesystem" /><published>2019-11-19T07:47:46-05:00</published><updated>2019-11-19T07:47:46-05:00</updated><id>http://0.0.0.0:4000/docker-layers-and-overlay-fs</id><content type="html" xml:base="http://0.0.0.0:4000/2019-11-19-docker-layers-and-overlay-fs/"><![CDATA[<h2 id="what-are-docker-layers-and-overlay-filesystems">What are docker layers and overlay filesystems</h2>
+<p>PS: I will add description for each soon</p>]]></content><author><name>AV</name></author><category term="elasticsearch" /><category term="elasticsearch" /><category term="rest-api" /><summary type="html"><![CDATA[Helpful Elasticsearch APIs]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2020-05-13-useful-elasticsearch-rest-apis/elasticsearch.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2020-05-13-useful-elasticsearch-rest-apis/elasticsearch.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Understanding docker layers and overlay filesystem</title><link href="http://0.0.0.0:4000/2019-11-19-docker-layers-and-overlay-fs/" rel="alternate" type="text/html" title="Understanding docker layers and overlay filesystem" /><published>2019-11-19T07:47:46-05:00</published><updated>2019-11-19T07:47:46-05:00</updated><id>http://0.0.0.0:4000/docker-layers-and-overlay-fs</id><content type="html" xml:base="http://0.0.0.0:4000/2019-11-19-docker-layers-and-overlay-fs/"><![CDATA[<h2 id="what-are-docker-layers-and-overlay-filesystems">What are docker layers and overlay filesystems</h2>
 <p>A docker image consists of layers. Each layer is an instruction in the Dockerfile. A container is an image with a writable(or readable) layer or top of other read only layers. This is where an overlayfs comes in to picture.
 This was one of the things that I wanted to understand better - What exactly is an overlay file system and how is docker using it.
 From archlinux wiki definition
@@ -310,7 +378,7 @@ common.txt  lower.txt</code></pre></figure>
   <li>https://docs.docker.com/storage/storagedriver/#images-and-layers</li>
   <li>https://wiki.archlinux.org/index.php/Overlay_filesystem</li>
   <li>https://www.kernel.org/doc/Documentation/filesystems/overlayfs.txt</li>
-</ul>]]></content><author><name>Arun Varghese</name></author><category term="docker" /><category term="docker" /><category term="docker-layers" /><category term="overlay" /><summary type="html"><![CDATA[Docker layers explained - A docker image consists of layers. Each layer is an instruction in the Dockerfile. A container is an image with a writable(or readable) layer or top of other read only layers. This is where an overlayfs comes in to picture.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2019-11-19-docker-layers-and-overlay-fs/docker1.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2019-11-19-docker-layers-and-overlay-fs/docker1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to write safe shell scripts</title><link href="http://0.0.0.0:4000/2019-11-13-write-safe-shell-scripts/" rel="alternate" type="text/html" title="How to write safe shell scripts" /><published>2019-11-13T10:52:57-05:00</published><updated>2019-11-13T10:52:57-05:00</updated><id>http://0.0.0.0:4000/write-safe-shell-scripts</id><content type="html" xml:base="http://0.0.0.0:4000/2019-11-13-write-safe-shell-scripts/"><![CDATA[<h2 id="good-practices-in-bash-scripts">Good Practices in bash scripts</h2>
+</ul>]]></content><author><name>AV</name></author><category term="docker" /><category term="docker" /><category term="docker-layers" /><category term="overlay" /><summary type="html"><![CDATA[Docker layers explained - A docker image consists of layers. Each layer is an instruction in the Dockerfile. A container is an image with a writable(or readable) layer or top of other read only layers. This is where an overlayfs comes in to picture.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2019-11-19-docker-layers-and-overlay-fs/docker1.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2019-11-19-docker-layers-and-overlay-fs/docker1.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to write safe shell scripts</title><link href="http://0.0.0.0:4000/2019-11-13-write-safe-shell-scripts/" rel="alternate" type="text/html" title="How to write safe shell scripts" /><published>2019-11-13T10:52:57-05:00</published><updated>2019-11-13T10:52:57-05:00</updated><id>http://0.0.0.0:4000/write-safe-shell-scripts</id><content type="html" xml:base="http://0.0.0.0:4000/2019-11-13-write-safe-shell-scripts/"><![CDATA[<h2 id="good-practices-in-bash-scripts">Good Practices in bash scripts</h2>
 
 <h3 id="shebang-">Shebang (#!)</h3>
 
@@ -420,7 +488,7 @@ pipe chain failed
 arun@home:~<span class="nv">$ </span><span class="nb">echo</span> <span class="nv">$?</span>
 1</code></pre></figure>
 
-<p>the echo $? is a special variable in bash that shows the exit code of last run command.</p>]]></content><author><name>Arun Varghese</name></author><category term="script" /><category term="bash" /><category term="script" /><category term="bash" /><category term="best-practices" /><summary type="html"><![CDATA[Bash script best practices - How to write safe shell scripts]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2019-11-13-write-safe-shell-scripts/terminal.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2019-11-13-write-safe-shell-scripts/terminal.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to remove file in linux using regex</title><link href="http://0.0.0.0:4000/2019-07-19-how-to-remove-files-using-regex/" rel="alternate" type="text/html" title="How to remove file in linux using regex" /><published>2019-07-19T19:20:00-04:00</published><updated>2019-07-19T19:20:00-04:00</updated><id>http://0.0.0.0:4000/how-to-remove-files-using-regex</id><content type="html" xml:base="http://0.0.0.0:4000/2019-07-19-how-to-remove-files-using-regex/"><![CDATA[<h2 id="deleting-older-files-within-a-date-range">Deleting older files within a date range</h2>
+<p>the echo $? is a special variable in bash that shows the exit code of last run command.</p>]]></content><author><name>AV</name></author><category term="script" /><category term="bash" /><category term="script" /><category term="bash" /><category term="best-practices" /><summary type="html"><![CDATA[Bash script best practices - How to write safe shell scripts]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2019-11-13-write-safe-shell-scripts/terminal.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2019-11-13-write-safe-shell-scripts/terminal.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to remove file in linux using regex</title><link href="http://0.0.0.0:4000/2019-07-19-how-to-remove-files-using-regex/" rel="alternate" type="text/html" title="How to remove file in linux using regex" /><published>2019-07-19T19:20:00-04:00</published><updated>2019-07-19T19:20:00-04:00</updated><id>http://0.0.0.0:4000/how-to-remove-files-using-regex</id><content type="html" xml:base="http://0.0.0.0:4000/2019-07-19-how-to-remove-files-using-regex/"><![CDATA[<h2 id="deleting-older-files-within-a-date-range">Deleting older files within a date range</h2>
 
 <p>Generally compressed log files created by utilities contain a date in the filename.
 For cleaning such accumulated compressed files we can use <code class="language-plaintext highlighter-rouge">rm</code> command with regex.</p>
@@ -441,4 +509,4 @@ For cleaning such accumulated compressed files we can use <code class="language-
 2016-04-28-nginx.tar.gz
 
 
-<span class="nv">$ </span><span class="nb">rm </span>201[3-6]<span class="k">*</span></code></pre></figure>]]></content><author><name>Arun Varghese</name></author><category term="regex" /><category term="linux" /><category term="bash" /><category term="script" /><category term="regex" /><summary type="html"><![CDATA[Deleting older files within a date range]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2019-08-11-how-to-remove-files-using-regex/files.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2019-08-11-how-to-remove-files-using-regex/files.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<span class="nv">$ </span><span class="nb">rm </span>201[3-6]<span class="k">*</span></code></pre></figure>]]></content><author><name>AV</name></author><category term="regex" /><category term="linux" /><category term="bash" /><category term="script" /><category term="regex" /><summary type="html"><![CDATA[Deleting older files within a date range]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/article_images/2019-08-11-how-to-remove-files-using-regex/files.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/article_images/2019-08-11-how-to-remove-files-using-regex/files.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
