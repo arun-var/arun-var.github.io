@@ -1,7 +1,3 @@
-# Jekyll Freelance Starter (Beautiful Jekyll–based)
-
-A pragmatic starter to blog, showcase projects, and pitch freelance services. Uses **Beautiful Jekyll** as a remote theme and overrides it with custom layouts, includes, and styles.
-
 ## Quick start
 
 1. Install Ruby (>= 3.0) and Bundler.
@@ -31,9 +27,4 @@ A pragmatic starter to blog, showcase projects, and pitch freelance services. Us
 ## Deploy
 
 - **GitHub Pages:** works best via GitHub Actions (since we use non-whitelisted plugins).
-- **EC2/Droplet:** build with `bundle exec jekyll build` and serve the `_site/` folder via Nginx.
 
-## Notes
-
-- We use `jekyll-paginate-v2` for flexible pagination; if you rely on stock GitHub Pages, switch to `jekyll-paginate`.
-- Replace Formspree endpoint in `contact.md`.

@@ -1,76 +1,133 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://0.0.0.0:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-10-25T14:31:00-04:00</updated><id>http://0.0.0.0:4000/atom.xml</id><title type="html">Arun Varghese</title><subtitle>DevOps • Cloud • Full‑stack</subtitle><author><name>Arun Varghese</name></author><entry><title type="html">Hello, world — new site</title><link href="http://0.0.0.0:4000/2025-10-22-welcome/" rel="alternate" type="text/html" title="Hello, world — new site" /><published>2025-10-22T00:00:00-04:00</published><updated>2025-10-22T00:00:00-04:00</updated><id>http://0.0.0.0:4000/welcome</id><content type="html" xml:base="http://0.0.0.0:4000/2025-10-22-welcome/"><![CDATA[<p>First post on my new Jekyll site. I’ll share notes on AWS, Kubernetes, CI/CD, and indie‑hacking.</p>]]></content><author><name>Arun Varghese</name></author><category term="devops" /><category term="jekyll" /><summary type="html"><![CDATA[First post on my new Jekyll site. I’ll share notes on AWS, Kubernetes, CI/CD, and indie‑hacking.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/img/og-default.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/img/og-default.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Podman and Colima as docker desktop alternatives for enterprise users</title><link href="http://0.0.0.0:4000/2023-03-04-docker-desktop-alternative-podman-colima/" rel="alternate" type="text/html" title="Podman and Colima as docker desktop alternatives for enterprise users" /><published>2023-03-04T00:00:00-05:00</published><updated>2023-03-04T00:00:00-05:00</updated><id>http://0.0.0.0:4000/docker-desktop-alternative-podman-colima</id><content type="html" xml:base="http://0.0.0.0:4000/2023-03-04-docker-desktop-alternative-podman-colima/"><![CDATA[<h1 id="docker-desktop-alternatives-for-enterprise-users">Docker Desktop Alternatives for Enterprise Users</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://0.0.0.0:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-10-25T23:18:58-04:00</updated><id>http://0.0.0.0:4000/atom.xml</id><title type="html">Arun Varghese</title><subtitle>DevOps • Cloud • Full‑stack</subtitle><author><name>Arun Varghese</name></author><entry><title type="html">Hello, world — new site</title><link href="http://0.0.0.0:4000/2025-10-22-welcome/" rel="alternate" type="text/html" title="Hello, world — new site" /><published>2025-10-22T00:00:00-04:00</published><updated>2025-10-22T00:00:00-04:00</updated><id>http://0.0.0.0:4000/welcome</id><content type="html" xml:base="http://0.0.0.0:4000/2025-10-22-welcome/"><![CDATA[<p>First post on my new Jekyll site. I’ll share notes on AWS, Kubernetes, CI/CD, and indie‑hacking.</p>]]></content><author><name>Arun Varghese</name></author><category term="devops" /><category term="jekyll" /><summary type="html"><![CDATA[First post on my new Jekyll site. I’ll share notes on AWS, Kubernetes, CI/CD, and indie‑hacking.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/img/og-default.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/img/og-default.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Docker Desktop Alternatives: Podman vs Colima</title><link href="http://0.0.0.0:4000/docker-desktop-alternative-podman-colima" rel="alternate" type="text/html" title="Docker Desktop Alternatives: Podman vs Colima" /><published>2023-03-04T00:00:00-05:00</published><updated>2023-03-04T00:00:00-05:00</updated><id>http://0.0.0.0:4000/docker-desktop-alternative-podman-colima</id><content type="html" xml:base="http://0.0.0.0:4000/docker-desktop-alternative-podman-colima"><![CDATA[<h1 id="docker-desktop-alternatives-podman-vs-colima-2025">Docker Desktop Alternatives: Podman vs Colima (2025)</h1>
 
-<p>Docker has changed its <a href="https://www.docker.com/pricing/">Service Agreement</a> and requires a paid subscription for Docker Desktop. It is a popular tool used by many developers to manage containers on their Mac. However, some users may want to explore alternatives to Docker Desktop / Docker for various reasons, such as performance issues or the desire for daemonless docker. Two possible alternatives to Docker Desktop on a Mac are <a href="https://podman.io/">Podman</a> and <a href="https://github.com/abiosoft/colima">Colima</a>. In this blog, I just wanted to quickly document my experience on try out these two alternatives as well as the pros and cons of each.</p>
+<p>If you’re evaluating <strong>Docker Desktop alternatives</strong> on macOS in 2025, <strong>Podman</strong> and <strong>Colima</strong> are the most practical choices. Both keep a Docker‑compatible developer experience, avoid licensing friction, and work well for enterprises with tighter security policies. This guide compares <strong>Podman vs Colima</strong>, shows quick-start commands, and highlights platform-engineering trade‑offs. <em>(Keyword mention: Docker Desktop alternatives.)</em></p>
 
-<h2 id="replacing-docker-desktop-with-podman-on-mac">Replacing Docker Desktop with Podman on Mac</h2>
-
-<p>Podman is a container management tool that allows users to manage containers without requiring a daemon to be running in the background. It is an open-source project developed by Red Hat and provides a CLI that is compatible with Docker.</p>
-
-<p>Install Podman: Podman can be installed on a Mac using Homebrew. Open a terminal window and enter the following commands:</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">brew <span class="nb">install </span>podman
-
-brew <span class="nb">install </span>podman-completion</code></pre></figure>
-
-<p>This will install Podman and its completion script.</p>
-
-<p>Start using Podman: Once Podman is installed, you can start using it to manage your containers. To run a container, use the podman run command. For example, to run a simple hello-world container, enter the following command in the terminal:</p>
-
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">podman run hello-world</code></pre></figure>
-
-<h2 id="pros-and-cons-of-podman">Pros and Cons of Podman</h2>
-
-<h3 id="pros">Pros:</h3>
+<h2 id="tldr">TL;DR</h2>
 
 <ul>
-  <li>Podman does not require a daemon to be running in the background, which can improve performance and security.</li>
-  <li>Podman provides a Docker-compatible CLI, making it easy to switch from Docker to Podman.</li>
-  <li>Podman supports rootless containers, which allows non-root users to run containers.</li>
+  <li><strong>Fastest path to <code class="language-plaintext highlighter-rouge">docker</code> CLI:</strong> Colima (brew install, one command).</li>
+  <li><strong>Security-first model:</strong> Podman (daemonless, rootless by default).</li>
+  <li><strong>Local Kubernetes:</strong> Both support it; Colima feels simpler to enable on Mac.</li>
+  <li><strong>GUI:</strong> Podman Desktop (optional). Colima is CLI-first.</li>
+  <li><strong>Enterprise fit:</strong> Both sidestep Docker Desktop licensing; Podman’s rootless posture often maps neatly to baseline security controls.</li>
+  <li><strong>Default pick for most Mac laptops:</strong> <strong>Colima</strong>; choose <strong>Podman</strong> if daemonless + rootless is your top priority.</li>
 </ul>
 
-<h3 id="cons">Cons:</h3>
+<h2 id="why-teams-still-look-beyond-docker-desktop">Why teams still look beyond Docker Desktop</h2>
 
 <ul>
-  <li>Podman is not as widely used as Docker, so finding support or tutorials may be more difficult.</li>
-  <li>Podman does not currently support Docker Compose, although this may change in the future.</li>
+  <li><strong>Licensing &amp; procurement</strong> friction in regulated orgs.</li>
+  <li><strong>Security posture</strong>: rootless/containerd‑style workflows are preferred.</li>
+  <li><strong>Repeatable onboarding</strong>: scriptable setup over heavyweight apps.</li>
+  <li><strong>CI parity</strong>: local runtime mirrors podman/containerd used in pipelines.</li>
 </ul>
 
-<p>Note: I had issues with volume mounting in podman, but looks like passing the mount to podman machine during its creation fixes it.
-For ex,</p>
+<p><em>Related reading (internal):</em> see your post on <strong>Docker layers &amp; overlay FS</strong> to keep images slim and builds fast.</p>
 
-<figure class="highlight"><pre><code class="language-sh" data-lang="sh">podman machine init <span class="nt">--disk-size</span> 20 <span class="nt">-v</span> <span class="se">\$</span>HOME:<span class="nv">$HOME</span>
+<h2 id="colima-what-it-is-and-when-to-use-it">Colima: what it is and when to use it</h2>
 
-podman machine start</code></pre></figure>
+<h3 id="how-colima-works-on-macos">How Colima works on macOS</h3>
+<ul>
+  <li>Runs a lightweight Linux VM and exposes a compatible <strong>Docker</strong> or <strong>containerd</strong> experience.</li>
+  <li>Works with <code class="language-plaintext highlighter-rouge">docker</code> and <code class="language-plaintext highlighter-rouge">docker compose</code> out of the box.</li>
+</ul>
 
-<h2 id="replacing-docker-desktop-with-colima-on-mac">Replacing Docker Desktop with Colima on Mac</h2>
+<h3 id="why-developers-like-it">Why developers like it</h3>
+<ul>
+  <li><strong>Dead-simple install:</strong> <code class="language-plaintext highlighter-rouge">brew install colima docker</code> then <code class="language-plaintext highlighter-rouge">colima start</code>.</li>
+  <li><strong>Profiles</strong> to tune CPU/memory/disk; quick resets for clean dev envs.</li>
+  <li><strong>Local Kubernetes:</strong> <code class="language-plaintext highlighter-rouge">colima start --kubernetes</code> to spin up a dev cluster.</li>
+</ul>
 
-<p>Colima is a Docker and Kubernetes development environment for Mac. It is built on top of macOS Hypervisor framework and provides a lightweight, native experience for managing containers.</p>
+<h3 id="trade-offs">Trade-offs</h3>
+<ul>
+  <li>Primarily <strong>CLI</strong> driven; no native GUI.</li>
+  <li>Usual macOS VM file‑sharing quirks—prefer cached mounts where possible.</li>
+</ul>
 
-<p>To replace Docker Desktop with Colima on a Mac, follow these steps:</p>
+<h2 id="podman-what-it-is-and-when-to-use-it">Podman: what it is and when to use it</h2>
 
-<p>Install Colima: Colima can be downloaded from the official website. Once downloaded, open the DMG file and drag the Colima app to the Applications folder.</p>
+<h3 id="how-podman-differs-from-docker">How Podman differs from Docker</h3>
+<ul>
+  <li><strong>Daemonless &amp; rootless</strong> by default; each container is a regular user process.</li>
+  <li>Docker‑compatible CLI (<code class="language-plaintext highlighter-rouge">podman run</code>) plus <strong>Podman Desktop</strong> GUI (optional).</li>
+</ul>
 
-<p>Start using Colima: Once Colima is installed, open the app and follow the setup instructions. You can then start using Colima to manage your containers.</p>
+<h3 id="why-platform-engineers-pick-it">Why platform engineers pick it</h3>
+<ul>
+  <li>Strong <strong>security</strong> story for dev workstations and hardened laptops.</li>
+  <li><strong>Systemd/pods</strong> map cleanly to Kubernetes concepts and production ergonomics.</li>
+</ul>
 
-<h2 id="pros-and-cons-of-colima">Pros and Cons of Colima</h2>
+<h3 id="trade-offs-1">Trade-offs</h3>
+<ul>
+  <li>Some Docker‑centric tooling expects a daemon.</li>
+  <li>On macOS, Podman also relies on a VM, so file‑share caveats still apply.</li>
+</ul>
 
-<h3 id="pros-1">Pros:</h3>
+<h2 id="quick-start-copypaste">Quick start (copy‑paste)</h2>
+
+<h3 id="colima">Colima</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>colima docker
+colima start <span class="nt">--cpu</span> 4 <span class="nt">--memory</span> 8 <span class="nt">--disk</span> 60
+docker version <span class="o">&amp;&amp;</span> docker run hello-world
+<span class="c"># Optional: local Kubernetes</span>
+colima stop <span class="o">&amp;&amp;</span> colima start <span class="nt">--kubernetes</span>
+</code></pre></div></div>
+
+<h3 id="podman">Podman</h3>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>brew <span class="nb">install </span>podman podman-desktop
+podman machine init
+podman machine start
+podman run <span class="nt">--rm</span> <span class="nt">-it</span> alpine:latest sh
+</code></pre></div></div>
+
+<h2 id="kubernetes-developer-experience">Kubernetes developer experience</h2>
 
 <ul>
-  <li>Colima provides a lightweight, native experience for managing containers on a Mac.</li>
-  <li>Colima supports Docker Compose and Kubernetes, making it a versatile tool for container management.</li>
-  <li>Colima provides a web-based interface for managing containers, which can be more user-friendly than a CLI.</li>
+  <li><strong>Colima:</strong> one flag to enable k8s; integrates naturally with <code class="language-plaintext highlighter-rouge">kubectl</code> for local fast‑feedback loops.</li>
+  <li><strong>Podman:</strong> excellent for container workflows; for full clusters, many pair it with kind/minikube.</li>
+  <li><strong>Reality check:</strong> local k8s ≠ prod; use it for quick iteration, not staging‑level parity.</li>
 </ul>
 
-<h3 id="cons-1">Cons:</h3>
+<h2 id="performance-notes-on-apple-silicon">Performance notes on Apple Silicon</h2>
 
 <ul>
-  <li>Colima is a relatively new tool and may have bugs or compatibility issues.
-C- olima is not as widely used as Docker, so finding support or tutorials may be more difficult.</li>
+  <li>VM disk I/O and bind‑mount behavior impact rebuild times more than raw CPU.</li>
+  <li>Use <strong>multi‑stage builds</strong>, <strong>layer caching</strong>, and <strong>small base images</strong>.</li>
+  <li>Keep dev volumes shallow; avoid syncing huge host directories into the VM.</li>
 </ul>
+
+<h2 id="enterprise-considerations">Enterprise considerations</h2>
+
+<ul>
+  <li><strong>Policy:</strong> both reduce licensing friction; Podman’s rootless defaults often win security reviews.</li>
+  <li><strong>SSO/registries:</strong> script <code class="language-plaintext highlighter-rouge">aws ecr get-login-password</code> / GHCR logins for developer ergonomics.</li>
+  <li><strong>Standardize:</strong> wrap docker/podman behind <code class="language-plaintext highlighter-rouge">make up</code>, <code class="language-plaintext highlighter-rouge">make test</code>, <code class="language-plaintext highlighter-rouge">make down</code>.</li>
+</ul>
+
+<h2 id="which-one-should-you-choose">Which one should you choose?</h2>
+
+<ul>
+  <li>Pick <strong>Colima</strong> for the most Docker‑like, minimal‑friction experience on Mac.</li>
+  <li>Pick <strong>Podman</strong> if <strong>daemonless + rootless</strong> are must‑haves for your org.</li>
+  <li>Both are viable—choose one, <strong>script it</strong>, and move on.</li>
+</ul>
+
+<h2 id="faq">FAQ</h2>
+
+<p><strong>Why are my volumes slow on Mac?</strong><br />
+Use cached mounts, avoid deep host paths, and consider building assets inside the image.</p>
+
+<p><strong>Can I keep Docker Desktop installed while testing alternatives?</strong><br />
+Yes—disable its background services while you evaluate to avoid CLI conflicts.</p>
+
+<p><strong>Does Colima support containerd?</strong><br />
+Yes; you can choose Docker or containerd depending on your toolchain needs.</p>
 
 <h2 id="conclusion">Conclusion</h2>
-<p>Replacing Docker Desktop with Podman or Colima on a Mac is relatively easy, and both tools offer certain pros and cons. Podman is a lightweight tool that provides a Docker-compatible CLI, while Colima provides a native, web-based interface for managing containers. Ultimately, the choice of which tool to use depends on the user.</p>]]></content><author><name>Arun Varghese</name></author><category term="docker" /><category term="docker-desktop" /><category term="mac" /><category term="docker" /><category term="docker-desktop" /><category term="mac" /><category term="colima" /><category term="podman" /><summary type="html"><![CDATA[Alternatives for Docker Desktop Enterprise Users Pros and Cons of Podman and Colima]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/img/og-default.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/img/og-default.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Lessons from Sectigo’s Expired Certificates</title><link href="http://0.0.0.0:4000/2020-05-30-fix-sectigo-expired-cert/" rel="alternate" type="text/html" title="Lessons from Sectigo’s Expired Certificates" /><published>2020-05-30T16:43:52-04:00</published><updated>2020-05-30T16:43:52-04:00</updated><id>http://0.0.0.0:4000/fix-sectigo-expired-cert</id><content type="html" xml:base="http://0.0.0.0:4000/2020-05-30-fix-sectigo-expired-cert/"><![CDATA[<h2 id="lessons-from-sectigos-expired-certificates---why-it-is-important-to-validate-ssl-certificate-chain-and-not-just-root-ssl-certificate-in-monitoring-systems">Lessons from Sectigo’s Expired Certificates - Why it is important to validate SSL certificate chain and not just root SSL certificate in monitoring systems</h2>
+
+<p>The best <strong>Docker Desktop alternative</strong> is the one that removes friction for your team. In 2025, <strong>Colima</strong> is a safe default for Mac laptops; <strong>Podman</strong> shines where daemonless, rootless security is a mandate. Script the workflow, document it in your repo, and ship.</p>]]></content><author><name>Arun</name></author><category term="Docker" /><category term="Docker" /><category term="Podman" /><category term="Colima" /><category term="macOS" /><category term="Kubernetes" /><category term="DevOps" /><category term="Containers" /><summary type="html"><![CDATA[Compare Podman and Colima as Docker Desktop alternatives on macOS, performance, Kubernetes, enterprise fit, and pitfalls.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://0.0.0.0:4000/assets/img/og-default.jpg" /><media:content medium="image" url="http://0.0.0.0:4000/assets/img/og-default.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Lessons from Sectigo’s Expired Certificates</title><link href="http://0.0.0.0:4000/2020-05-30-fix-sectigo-expired-cert/" rel="alternate" type="text/html" title="Lessons from Sectigo’s Expired Certificates" /><published>2020-05-30T16:43:52-04:00</published><updated>2020-05-30T16:43:52-04:00</updated><id>http://0.0.0.0:4000/fix-sectigo-expired-cert</id><content type="html" xml:base="http://0.0.0.0:4000/2020-05-30-fix-sectigo-expired-cert/"><![CDATA[<h2 id="lessons-from-sectigos-expired-certificates---why-it-is-important-to-validate-ssl-certificate-chain-and-not-just-root-ssl-certificate-in-monitoring-systems">Lessons from Sectigo’s Expired Certificates - Why it is important to validate SSL certificate chain and not just root SSL certificate in monitoring systems</h2>
 <p><br /></p>
 
 <h3 id="how-it-all-started-today">How it all started today?</h3>
