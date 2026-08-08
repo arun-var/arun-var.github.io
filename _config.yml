@@ -45,6 +45,13 @@ paginate_path: "/blog/page:num/"
 defaults:
   - scope:
       path: ""
+    values:
+      # Injects the light/dark theme init + toggle into <head> on every page
+      # (via Beautiful Jekyll's head-extra hook — no layout override needed)
+      head-extra:
+        - theme-init.html
+  - scope:
+      path: ""
       type: "posts"
     values:
       layout: post
@@ -64,9 +71,9 @@ kramdown:
   input: GFM
 
 # Navigation
+# Re-add `Projects: "projects"` once there is real project content in _projects/
 navbar-links:
   Blog: "blog"
-  Projects: "projects"
   Services: "services"
   About: "about"
   Contact: "contact"

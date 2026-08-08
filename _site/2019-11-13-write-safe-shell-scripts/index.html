@@ -112,6 +112,67 @@
   
 
   
+    
+      <script>
+(function () {
+  var root = document.documentElement;
+
+  function systemPref() {
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  function current() {
+    return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+
+  // Apply the saved (or system) theme immediately, before paint, to avoid a flash.
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  root.setAttribute('data-theme', saved || systemPref());
+
+  function updateButton(theme) {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var dark = theme === 'dark';
+    btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    btn.setAttribute('title', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.innerHTML = dark ? '☀️' : '🌙'; // sun / moon
+  }
+
+  function setTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    try { localStorage.setItem('theme', theme); } catch (e) {}
+    updateButton(theme);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var btn = document.createElement('button');
+    btn.id = 'theme-toggle';
+    btn.type = 'button';
+    btn.className = 'theme-toggle';
+    btn.setAttribute('aria-label', 'Toggle light and dark reading mode');
+    btn.addEventListener('click', function () {
+      setTheme(current() === 'dark' ? 'light' : 'dark');
+    });
+    document.body.appendChild(btn);
+    updateButton(current());
+  });
+
+  // If the visitor hasn't chosen explicitly, follow OS changes live.
+  if (!saved && window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    var onChange = function (e) {
+      var chosen = null;
+      try { chosen = localStorage.getItem('theme'); } catch (err) {}
+      if (!chosen) { root.setAttribute('data-theme', e.matches ? 'dark' : 'light'); updateButton(current()); }
+    };
+    if (mq.addEventListener) { mq.addEventListener('change', onChange); }
+    else if (mq.addListener) { mq.addListener(onChange); }
+  }
+})();
+</script>
+
+    
+  
 
 </head>
 
@@ -129,9 +190,6 @@
     <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="/blog">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/projects">Projects</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/services">Services</a>
@@ -216,7 +274,7 @@ This ensures that the correct interpreter will be used to interpret the script, 
 
 <p>this will make the shell script exit as soon as any line in the bash script fails.
 for example, a shell file like below will execute every line</p>
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/501d903a4db01b5bcbf4e59e7ecae7c2.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./set_e_without.sh 
@@ -226,7 +284,7 @@ false
 true</span></code></pre></figure>
 
 <p>After adding set -e, it will stop executing after the line that fails, in this case the one that returns false.</p>
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/9d841d3cc79224faf16f8fc602799372.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_set_e.sh 
@@ -236,7 +294,7 @@ true</span></code></pre></figure>
 <h3 id="ignore-failure-in-scripts">Ignore failure in scripts</h3>
 <p>if we don’t want the script to fail after certain failing statements, we can append these certain statements with || true.</p>
 
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/1531d5db9b2bd6f0b3aa98c7d73cd044.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_set_e_and_ignore_fail.sh           
@@ -248,7 +306,7 @@ true
 <h3 id="set--x">set -x</h3>
 
 <p>this will make the shell print each line before execution. Combining this with previous set statement and same example, it will look like</p>
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/a9c92e43f02fd4c65514bb63fb05dce4.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_set_x.sh           
@@ -263,7 +321,7 @@ true</span>
 <h3 id="set--u">set -u</h3>
 
 <p>The following example has variable <em>b</em> which is not set. The run of the script will be successful.</p>
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/a9b2414088f39537cbd6e168e9e716f6.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./without_set_u.sh 
@@ -278,7 +336,7 @@ true</span>
 0</code></pre></figure>
 
 <p>But adding <em>-u</em> to the same script will force bash to treat unset variables as an error and exit immediately.</p>
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/ca24e436660a986cbd58d9b22f113ce2.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_set_u.sh 
@@ -294,7 +352,7 @@ true</span>
 <p>bash usually looks at the exit code of the last command in a pipeline. This can cause a problem for -e option as it will only consider the leftmost command’s exit code in a pipeline.
 This particular option sets the exit code of pipeline commands to that of the rightmost command to exit with a non-zero status or 0 if all exit successfully.</p>
 
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/5df45b0e6c32925c6ffd927c77b16900.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./without_pipefail.sh 
@@ -304,7 +362,7 @@ pipe chain failed
 ++ <span class="nb">echo</span> <span class="s1">'but I execute'</span>
 but I execute</code></pre></figure>
 
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/c3016ad398b86686d737f042298aac80.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_pipefail.sh 
@@ -368,7 +426,7 @@ arun@home:~<span class="nv">$ </span><span class="nb">echo</span> <span class="n
         AV
         &nbsp;&bull;&nbsp;
       
-      2025
+      2026
 
       
 

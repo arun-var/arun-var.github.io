@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://0.0.0.0:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2025-10-26T11:47:45-04:00</updated><id>http://0.0.0.0:4000/atom.xml</id><title type="html">AV</title><subtitle>DevOps • Cloud • Full‑stack</subtitle><author><name>AV</name></author><entry><title type="html">Docker Desktop Alternatives: Podman vs Colima</title><link href="http://0.0.0.0:4000/docker-desktop-alternative-podman-colima" rel="alternate" type="text/html" title="Docker Desktop Alternatives: Podman vs Colima" /><published>2023-03-04T00:00:00-05:00</published><updated>2023-03-04T00:00:00-05:00</updated><id>http://0.0.0.0:4000/docker-desktop-alternative-podman-colima</id><content type="html" xml:base="http://0.0.0.0:4000/docker-desktop-alternative-podman-colima"><![CDATA[<h1 id="docker-desktop-alternatives-podman-vs-colima">Docker Desktop Alternatives: Podman vs Colima</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://0.0.0.0:4000/atom.xml" rel="self" type="application/atom+xml" /><link href="http://0.0.0.0:4000/" rel="alternate" type="text/html" /><updated>2026-08-08T01:11:54-04:00</updated><id>http://0.0.0.0:4000/atom.xml</id><title type="html">AV</title><subtitle>DevOps • Cloud • Full‑stack</subtitle><author><name>AV</name></author><entry><title type="html">Docker Desktop Alternatives: Podman vs Colima</title><link href="http://0.0.0.0:4000/docker-desktop-alternative-podman-colima" rel="alternate" type="text/html" title="Docker Desktop Alternatives: Podman vs Colima" /><published>2023-03-04T00:00:00-05:00</published><updated>2023-03-04T00:00:00-05:00</updated><id>http://0.0.0.0:4000/docker-desktop-alternative-podman-colima</id><content type="html" xml:base="http://0.0.0.0:4000/docker-desktop-alternative-podman-colima"><![CDATA[<h1 id="docker-desktop-alternatives-podman-vs-colima">Docker Desktop Alternatives: Podman vs Colima</h1>
 
 <p>If you’re evaluating <strong>Docker Desktop alternatives</strong> on macOS in 2025, <strong>Podman</strong> and <strong>Colima</strong> are the most practical choices. Both keep a Docker‑compatible developer experience, avoid licensing friction, and work well for enterprises with tighter security policies. This guide compares <strong>Podman vs Colima</strong>, shows quick-start commands, and highlights platform-engineering trade‑offs. If you’re searching for a Docker Desktop alternative for Mac, this Podman vs Colima breakdown covers setup, performance, and k8s.</p>
 
@@ -389,7 +389,7 @@ This ensures that the correct interpreter will be used to interpret the script, 
 
 <p>this will make the shell script exit as soon as any line in the bash script fails.
 for example, a shell file like below will execute every line</p>
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/501d903a4db01b5bcbf4e59e7ecae7c2.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./set_e_without.sh 
@@ -399,7 +399,7 @@ false
 true</span></code></pre></figure>
 
 <p>After adding set -e, it will stop executing after the line that fails, in this case the one that returns false.</p>
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/9d841d3cc79224faf16f8fc602799372.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_set_e.sh 
@@ -409,7 +409,7 @@ true</span></code></pre></figure>
 <h3 id="ignore-failure-in-scripts">Ignore failure in scripts</h3>
 <p>if we don’t want the script to fail after certain failing statements, we can append these certain statements with || true.</p>
 
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/1531d5db9b2bd6f0b3aa98c7d73cd044.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_set_e_and_ignore_fail.sh           
@@ -421,7 +421,7 @@ true
 <h3 id="set--x">set -x</h3>
 
 <p>this will make the shell print each line before execution. Combining this with previous set statement and same example, it will look like</p>
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/a9c92e43f02fd4c65514bb63fb05dce4.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_set_x.sh           
@@ -436,7 +436,7 @@ true</span>
 <h3 id="set--u">set -u</h3>
 
 <p>The following example has variable <em>b</em> which is not set. The run of the script will be successful.</p>
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/a9b2414088f39537cbd6e168e9e716f6.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./without_set_u.sh 
@@ -451,7 +451,7 @@ true</span>
 0</code></pre></figure>
 
 <p>But adding <em>-u</em> to the same script will force bash to treat unset variables as an error and exit immediately.</p>
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/ca24e436660a986cbd58d9b22f113ce2.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_set_u.sh 
@@ -467,7 +467,7 @@ true</span>
 <p>bash usually looks at the exit code of the last command in a pipeline. This can cause a problem for -e option as it will only consider the leftmost command’s exit code in a pipeline.
 This particular option sets the exit code of pipeline commands to that of the rightmost command to exit with a non-zero status or 0 if all exit successfully.</p>
 
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/5df45b0e6c32925c6ffd927c77b16900.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./without_pipefail.sh 
@@ -477,7 +477,7 @@ pipe chain failed
 ++ <span class="nb">echo</span> <span class="s1">'but I execute'</span>
 but I execute</code></pre></figure>
 
-<noscript><pre>400: Invalid request</pre></noscript>
+<noscript><pre>404: Not Found</pre></noscript>
 <script src="https://gist.github.com/c3016ad398b86686d737f042298aac80.js"> </script>
 
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">arun@home:~<span class="nv">$ </span>./with_pipefail.sh 

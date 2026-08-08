@@ -9,13 +9,13 @@
 
   
 
-  <title>Football</title>
+  <title>Privacy</title>
 
   
   <meta name="author" content="AV">
   
 
-  <meta name="description" content="Tactics, analysis, and notebook-style breakdowns.">
+  <meta name="description" content="No cookies, no trackers, no ads — by design.">
 
   
 
@@ -78,8 +78,8 @@
 
   
   <meta property="og:site_name" content="AV">
-  <meta property="og:title" content="Football">
-  <meta property="og:description" content="Tactics, analysis, and notebook-style breakdowns.">
+  <meta property="og:title" content="Privacy">
+  <meta property="og:description" content="No cookies, no trackers, no ads — by design.">
 
   
   <meta property="og:image" content="http://0.0.0.0:4000/assets/img/avatar.jpg">
@@ -87,8 +87,8 @@
 
   
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://0.0.0.0:4000/football/">
-  <link rel="canonical" href="http://0.0.0.0:4000/football/">
+  <meta property="og:url" content="http://0.0.0.0:4000/privacy/">
+  <link rel="canonical" href="http://0.0.0.0:4000/privacy/">
   
 
   
@@ -97,8 +97,8 @@
   <meta name="twitter:site" content="@">
   <meta name="twitter:creator" content="@">
 
-  <meta property="twitter:title" content="Football">
-  <meta property="twitter:description" content="Tactics, analysis, and notebook-style breakdowns.">
+  <meta property="twitter:title" content="Privacy">
+  <meta property="twitter:description" content="No cookies, no trackers, no ads — by design.">
 
   
   <meta name="twitter:image" content="http://0.0.0.0:4000/assets/img/avatar.jpg">
@@ -109,6 +109,67 @@
 
   
 
+  
+    
+      <script>
+(function () {
+  var root = document.documentElement;
+
+  function systemPref() {
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  function current() {
+    return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+
+  // Apply the saved (or system) theme immediately, before paint, to avoid a flash.
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  root.setAttribute('data-theme', saved || systemPref());
+
+  function updateButton(theme) {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var dark = theme === 'dark';
+    btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    btn.setAttribute('title', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.innerHTML = dark ? '☀️' : '🌙'; // sun / moon
+  }
+
+  function setTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    try { localStorage.setItem('theme', theme); } catch (e) {}
+    updateButton(theme);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var btn = document.createElement('button');
+    btn.id = 'theme-toggle';
+    btn.type = 'button';
+    btn.className = 'theme-toggle';
+    btn.setAttribute('aria-label', 'Toggle light and dark reading mode');
+    btn.addEventListener('click', function () {
+      setTheme(current() === 'dark' ? 'light' : 'dark');
+    });
+    document.body.appendChild(btn);
+    updateButton(current());
+  });
+
+  // If the visitor hasn't chosen explicitly, follow OS changes live.
+  if (!saved && window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    var onChange = function (e) {
+      var chosen = null;
+      try { chosen = localStorage.getItem('theme'); } catch (err) {}
+      if (!chosen) { root.setAttribute('data-theme', e.matches ? 'dark' : 'light'); updateButton(current()); }
+    };
+    if (mq.addEventListener) { mq.addEventListener('change', onChange); }
+    else if (mq.addListener) { mq.addListener(onChange); }
+  }
+})();
+</script>
+
+    
   
 
 </head>
@@ -127,9 +188,6 @@
     <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="/blog">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/projects">Projects</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/services">Services</a>
@@ -175,11 +233,11 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="page-heading">
-          <h1>Football</h1>
+          <h1>Privacy</h1>
           
             
               <hr class="small">
-              <span class="page-subheading">Tactics, analysis, and notebook-style breakdowns.</span>
+              <span class="page-subheading">No cookies, no trackers, no ads — by design.</span>
             
           
 
@@ -200,13 +258,35 @@
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
       
 
-      <p>Compact explainers and match notes.</p>
+      <p>I built this site to respect your privacy completely. There’s nothing to opt out of, because there’s nothing collecting your data in the first place.</p>
 
-<ul class="post-list">
+<h2 id="what-this-site-does-not-do">What this site does <em>not</em> do</h2>
 
-
+<ul>
+  <li><strong>No cookies.</strong> The site sets no cookies of any kind — not for analytics, not for advertising, not for “preferences.”</li>
+  <li><strong>No analytics.</strong> There’s no Google Analytics, no tag manager, no pixels, and no third-party analytics of any kind. I don’t count you.</li>
+  <li><strong>No ads and no ad networks.</strong> Nothing on the page is loading trackers to profile you.</li>
+  <li><strong>No fingerprinting.</strong> No scripts trying to identify your device or browser.</li>
 </ul>
 
+<h2 id="what-does-happen">What does happen</h2>
+
+<ul>
+  <li>The site is served as static HTML. Like any web host, the server may keep basic, short-lived access logs (such as the requesting IP address) for security and reliability. These aren’t used to profile or identify you, and aren’t shared or sold.</li>
+  <li>A couple of resources may load from reputable third parties (for example, jQuery from a public CDN, and web fonts). These can see a request came in, but the site sends no identifying information and sets no cookies through them.</li>
+  <li>If you use the contact form, the details you type are sent to a form-handling service solely so I can read and reply to your message.</li>
+</ul>
+
+<h2 id="want-to-verify-it-yourself">Want to verify it yourself?</h2>
+
+<p>Open your browser’s developer tools on any page here:</p>
+
+<ul>
+  <li><strong>Application → Cookies</strong>: you’ll see none set by this site.</li>
+  <li><strong>Network</strong> tab: no requests to analytics or ad domains.</li>
+</ul>
+
+<p>That’s the whole policy. If anything ever changes, this page will say so.</p>
 
 
       
@@ -230,7 +310,7 @@
         AV
         &nbsp;&bull;&nbsp;
       
-      2025
+      2026
 
       
 

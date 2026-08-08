@@ -9,15 +9,13 @@
 
   
 
-  <title>Serverless ETL for Marketing Events</title>
+  <title>Miscellaneous</title>
 
   
   <meta name="author" content="AV">
   
 
-  <meta name="description" content="Context: The client needed to centralize clickstream data and power near‑real‑time dashboards without a pricey vendor.
-
-Solution: We built a serverless ingestion pipeline with Kinesis → Lambda → S3 (partitioned by date) and queried with Athena. Glue crawlers maintained the catalog.">
+  <meta name="description" content="Everything else — notes, ideas, and the occasional rabbit hole.">
 
   
 
@@ -80,21 +78,17 @@ Solution: We built a serverless ingestion pipeline with Kinesis → Lambda → S
 
   
   <meta property="og:site_name" content="AV">
-  <meta property="og:title" content="Serverless ETL for Marketing Events">
-  <meta property="og:description" content="Context: The client needed to centralize clickstream data and power near‑real‑time dashboards without a pricey vendor.
-
-Solution: We built a serverless ingestion pipeline with Kinesis → Lambda → S3 (partitioned by date) and queried with Athena. Glue crawlers maintained the catalog.">
+  <meta property="og:title" content="Miscellaneous">
+  <meta property="og:description" content="Everything else — notes, ideas, and the occasional rabbit hole.">
 
   
   <meta property="og:image" content="http://0.0.0.0:4000/assets/img/avatar.jpg">
   
 
   
-  <meta property="og:type" content="article">
-  <meta property="og:article:author" content="AV">
-  <meta property="og:article:published_time" content="2025-08-15T00:00:00-04:00">
-  <meta property="og:url" content="http://0.0.0.0:4000/projects/sample-project/">
-  <link rel="canonical" href="http://0.0.0.0:4000/projects/sample-project/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="http://0.0.0.0:4000/misc/">
+  <link rel="canonical" href="http://0.0.0.0:4000/misc/">
   
 
   
@@ -103,10 +97,8 @@ Solution: We built a serverless ingestion pipeline with Kinesis → Lambda → S
   <meta name="twitter:site" content="@">
   <meta name="twitter:creator" content="@">
 
-  <meta property="twitter:title" content="Serverless ETL for Marketing Events">
-  <meta property="twitter:description" content="Context: The client needed to centralize clickstream data and power near‑real‑time dashboards without a pricey vendor.
-
-Solution: We built a serverless ingestion pipeline with Kinesis → Lambda → S3 (partitioned by date) and queried with Athena. Glue crawlers maintained the catalog.">
+  <meta property="twitter:title" content="Miscellaneous">
+  <meta property="twitter:description" content="Everything else — notes, ideas, and the occasional rabbit hole.">
 
   
   <meta name="twitter:image" content="http://0.0.0.0:4000/assets/img/avatar.jpg">
@@ -117,6 +109,67 @@ Solution: We built a serverless ingestion pipeline with Kinesis → Lambda → S
 
   
 
+  
+    
+      <script>
+(function () {
+  var root = document.documentElement;
+
+  function systemPref() {
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  function current() {
+    return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+
+  // Apply the saved (or system) theme immediately, before paint, to avoid a flash.
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  root.setAttribute('data-theme', saved || systemPref());
+
+  function updateButton(theme) {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var dark = theme === 'dark';
+    btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    btn.setAttribute('title', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.innerHTML = dark ? '☀️' : '🌙'; // sun / moon
+  }
+
+  function setTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    try { localStorage.setItem('theme', theme); } catch (e) {}
+    updateButton(theme);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var btn = document.createElement('button');
+    btn.id = 'theme-toggle';
+    btn.type = 'button';
+    btn.className = 'theme-toggle';
+    btn.setAttribute('aria-label', 'Toggle light and dark reading mode');
+    btn.addEventListener('click', function () {
+      setTheme(current() === 'dark' ? 'light' : 'dark');
+    });
+    document.body.appendChild(btn);
+    updateButton(current());
+  });
+
+  // If the visitor hasn't chosen explicitly, follow OS changes live.
+  if (!saved && window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    var onChange = function (e) {
+      var chosen = null;
+      try { chosen = localStorage.getItem('theme'); } catch (err) {}
+      if (!chosen) { root.setAttribute('data-theme', e.matches ? 'dark' : 'light'); updateButton(current()); }
+    };
+    if (mq.addEventListener) { mq.addEventListener('change', onChange); }
+    else if (mq.addListener) { mq.addListener(onChange); }
+  }
+})();
+</script>
+
+    
   
 
 </head>
@@ -135,9 +188,6 @@ Solution: We built a serverless ingestion pipeline with Kinesis → Lambda → S
     <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="/blog">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/projects">Projects</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/services">Services</a>
@@ -183,7 +233,12 @@ Solution: We built a serverless ingestion pipeline with Kinesis → Lambda → S
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="page-heading">
-          <h1>Serverless ETL for Marketing Events</h1>
+          <h1>Miscellaneous</h1>
+          
+            
+              <hr class="small">
+              <span class="page-subheading">Everything else — notes, ideas, and the occasional rabbit hole.</span>
+            
           
 
           
@@ -203,9 +258,13 @@ Solution: We built a serverless ingestion pipeline with Kinesis → Lambda → S
     <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
       
 
-      <p><strong>Context:</strong> The client needed to centralize clickstream data and power near‑real‑time dashboards without a pricey vendor.</p>
+      <p>Assorted posts that don't fit the other topics.</p>
 
-<p><strong>Solution:</strong> We built a serverless ingestion pipeline with Kinesis → Lambda → S3 (partitioned by date) and queried with Athena. Glue crawlers maintained the catalog.</p>
+<ul class="post-list">
+
+
+</ul>
+
 
 
       
@@ -229,7 +288,7 @@ Solution: We built a serverless ingestion pipeline with Kinesis → Lambda → S
         AV
         &nbsp;&bull;&nbsp;
       
-      2025
+      2026
 
       
 

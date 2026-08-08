@@ -110,6 +110,67 @@
   
 
   
+    
+      <script>
+(function () {
+  var root = document.documentElement;
+
+  function systemPref() {
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  function current() {
+    return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+
+  // Apply the saved (or system) theme immediately, before paint, to avoid a flash.
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  root.setAttribute('data-theme', saved || systemPref());
+
+  function updateButton(theme) {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var dark = theme === 'dark';
+    btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    btn.setAttribute('title', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.innerHTML = dark ? '☀️' : '🌙'; // sun / moon
+  }
+
+  function setTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    try { localStorage.setItem('theme', theme); } catch (e) {}
+    updateButton(theme);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var btn = document.createElement('button');
+    btn.id = 'theme-toggle';
+    btn.type = 'button';
+    btn.className = 'theme-toggle';
+    btn.setAttribute('aria-label', 'Toggle light and dark reading mode');
+    btn.addEventListener('click', function () {
+      setTheme(current() === 'dark' ? 'light' : 'dark');
+    });
+    document.body.appendChild(btn);
+    updateButton(current());
+  });
+
+  // If the visitor hasn't chosen explicitly, follow OS changes live.
+  if (!saved && window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    var onChange = function (e) {
+      var chosen = null;
+      try { chosen = localStorage.getItem('theme'); } catch (err) {}
+      if (!chosen) { root.setAttribute('data-theme', e.matches ? 'dark' : 'light'); updateButton(current()); }
+    };
+    if (mq.addEventListener) { mq.addEventListener('change', onChange); }
+    else if (mq.addListener) { mq.addListener(onChange); }
+  }
+})();
+</script>
+
+    
+  
 
 </head>
 
@@ -127,9 +188,6 @@
     <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="/blog">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/projects">Projects</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/services">Services</a>
@@ -218,7 +276,7 @@
 
 <div>
   <a class="btn btn-primary" href="/services/">View Services</a>
-  <a class="btn" href="/projects/">See Projects</a>
+  
 </div>
 
 <hr />
@@ -233,14 +291,11 @@
     <a class="card" href="/tech/">
       <h3>Technology &amp; Engineering</h3><p>AWS, Kubernetes, Terraform.</p>
     </a>
-    <a class="card" href="/personal-finance/">
-      <h3>Personal Finance</h3><p>Canada-focused money basics.</p>
+    <a class="card" href="/finance/">
+      <h3>Personal Finance &amp; Investing</h3><p>Canada-focused money, ETFs, and risk.</p>
     </a>
-    <a class="card" href="/investing/">
-      <h3>Investing</h3><p>ETFs, rules, risk.</p>
-    </a>
-    <a class="card" href="/football/">
-      <h3>Football</h3><p>Tactics &amp; analysis notes.</p>
+    <a class="card" href="/misc/">
+      <h3>Miscellaneous</h3><p>Notes, ideas, and everything else.</p>
     </a>
   </div>
 </section>
@@ -290,6 +345,13 @@
   <a class="btn" href="/atom.xml">RSS</a>
 </div>
 
+<!-- PRIVACY: no tracking, by design -->
+<p class="privacy-note">
+  🔒 <strong>No cookies. No trackers. No ads.</strong>
+  This site doesn't run analytics or set cookies — your visit isn't logged, profiled, or sold.
+  <a href="/privacy/">How this works →</a>
+</p>
+
 
       
 
@@ -312,7 +374,7 @@
         AV
         &nbsp;&bull;&nbsp;
       
-      2025
+      2026
 
       
 

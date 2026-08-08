@@ -112,6 +112,67 @@
   
 
   
+    
+      <script>
+(function () {
+  var root = document.documentElement;
+
+  function systemPref() {
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  }
+  function current() {
+    return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+
+  // Apply the saved (or system) theme immediately, before paint, to avoid a flash.
+  var saved = null;
+  try { saved = localStorage.getItem('theme'); } catch (e) {}
+  root.setAttribute('data-theme', saved || systemPref());
+
+  function updateButton(theme) {
+    var btn = document.getElementById('theme-toggle');
+    if (!btn) return;
+    var dark = theme === 'dark';
+    btn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    btn.setAttribute('title', dark ? 'Switch to light mode' : 'Switch to dark mode');
+    btn.innerHTML = dark ? '☀️' : '🌙'; // sun / moon
+  }
+
+  function setTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    try { localStorage.setItem('theme', theme); } catch (e) {}
+    updateButton(theme);
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var btn = document.createElement('button');
+    btn.id = 'theme-toggle';
+    btn.type = 'button';
+    btn.className = 'theme-toggle';
+    btn.setAttribute('aria-label', 'Toggle light and dark reading mode');
+    btn.addEventListener('click', function () {
+      setTheme(current() === 'dark' ? 'light' : 'dark');
+    });
+    document.body.appendChild(btn);
+    updateButton(current());
+  });
+
+  // If the visitor hasn't chosen explicitly, follow OS changes live.
+  if (!saved && window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    var onChange = function (e) {
+      var chosen = null;
+      try { chosen = localStorage.getItem('theme'); } catch (err) {}
+      if (!chosen) { root.setAttribute('data-theme', e.matches ? 'dark' : 'light'); updateButton(current()); }
+    };
+    if (mq.addEventListener) { mq.addEventListener('change', onChange); }
+    else if (mq.addListener) { mq.addListener(onChange); }
+  }
+})();
+</script>
+
+    
+  
 
 </head>
 
@@ -129,9 +190,6 @@
     <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="/blog">Blog</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/projects">Projects</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/services">Services</a>
@@ -363,7 +421,7 @@ Public TLS lifespans are short; automate renewals and alert well ahead of expiry
         AV
         &nbsp;&bull;&nbsp;
       
-      2025
+      2026
 
       
 

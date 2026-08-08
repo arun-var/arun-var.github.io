@@ -181,4 +181,226 @@ section {
   color: #555;
 }
 
+/* Privacy / no-tracking callout */
+.privacy-note {
+  max-width: 720px;
+  margin: 2.5rem auto 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid #d7ede9;
+  border-radius: 12px;
+  background: #f3faf8;
+  text-align: center;
+  color: #245e57;
+  font-size: 0.95rem;
+}
+
+.privacy-note strong {
+  color: var(--brand);
+}
+
+.privacy-note a {
+  color: var(--brand);
+}
+
+/* =========================================================
+   Dark reading mode
+   Activated by data-theme="dark" on <html> (see _includes/theme-init.html).
+   Loaded after beautifuljekyll.css, so these overrides win.
+   ========================================================= */
+[data-theme=dark] body {
+  background-color: #14171c;
+  color: #c9ccd1;
+}
+
+[data-theme=dark] #main-content,
+[data-theme=dark] .intro-header {
+  background-color: transparent;
+}
+
+[data-theme=dark] h1,
+[data-theme=dark] h2,
+[data-theme=dark] h3,
+[data-theme=dark] h4,
+[data-theme=dark] h5,
+[data-theme=dark] h6 {
+  color: #e8eaed;
+}
+
+[data-theme=dark] a {
+  color: #5aa9ff;
+}
+
+[data-theme=dark] a:hover,
+[data-theme=dark] a:focus {
+  color: #8cc6ff;
+}
+
+/* Navbar */
+[data-theme=dark] .navbar-custom {
+  background-color: #1c2027;
+}
+
+[data-theme=dark] .navbar-custom .navbar-brand,
+[data-theme=dark] .navbar-custom .navbar-nav .nav-link {
+  color: #e8eaed;
+}
+
+[data-theme=dark] .navbar-custom .nav-item.dropdown .dropdown-menu {
+  background-color: #1c2027;
+}
+
+[data-theme=dark] .navbar-custom .navbar-nav .dropdown-menu .dropdown-item {
+  color: #c9ccd1;
+}
+
+[data-theme=dark] .navbar-custom .navbar-nav .dropdown-menu .dropdown-item:hover,
+[data-theme=dark] .navbar-custom .navbar-nav .dropdown-menu .dropdown-item:focus {
+  background-color: #2c313a;
+}
+
+[data-theme=dark] .navbar-custom .navbar-toggler-icon {
+  filter: invert(0.9);
+}
+
+/* Footer (theme sets some colors with !important, so match that) */
+[data-theme=dark] footer,
+[data-theme=dark] .footer-custom {
+  background-color: #1c2027;
+}
+
+[data-theme=dark] footer,
+[data-theme=dark] footer .text-muted {
+  color: #9aa0a8 !important;
+}
+
+[data-theme=dark] footer a {
+  color: #c1c5cb;
+}
+
+[data-theme=dark] footer a:hover {
+  color: #ffffff;
+}
+
+/* Topic cards */
+[data-theme=dark] .card {
+  background-color: #1c2027;
+  border-color: #2c313a;
+  color: #c9ccd1;
+}
+
+[data-theme=dark] .card:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+/* Buttons */
+[data-theme=dark] .btn {
+  border-color: #3a4048;
+  color: #d7dade;
+}
+
+[data-theme=dark] .btn-primary {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+
+/* Muted text, dates, quotes */
+[data-theme=dark] .date,
+[data-theme=dark] .muted,
+[data-theme=dark] blockquote {
+  color: #8b929c;
+}
+
+/* Code */
+[data-theme=dark] code {
+  background-color: #22262e;
+  color: #e6c07b;
+}
+
+[data-theme=dark] pre,
+[data-theme=dark] .highlight,
+[data-theme=dark] .highlight pre {
+  background-color: #1b1f26;
+  color: #d7dade;
+}
+
+[data-theme=dark] pre code {
+  color: #d7dade;
+  background: transparent;
+}
+
+/* Rules, tables */
+[data-theme=dark] hr {
+  border-color: #2c313a;
+}
+
+[data-theme=dark] table td,
+[data-theme=dark] table th {
+  border-color: #2c313a;
+}
+
+/* Contact form */
+[data-theme=dark] .contact-form input,
+[data-theme=dark] .contact-form select,
+[data-theme=dark] .contact-form textarea {
+  background-color: #1c2027;
+  border-color: #2c313a;
+  color: #d7dade;
+}
+
+[data-theme=dark] .contact-alt {
+  color: #9aa0a8;
+}
+
+/* Privacy note */
+[data-theme=dark] .privacy-note {
+  background: #13221f;
+  border-color: #1f3d37;
+  color: #8fd8cd;
+}
+
+[data-theme=dark] .privacy-note strong,
+[data-theme=dark] .privacy-note a {
+  color: #2dd4bf;
+}
+
+/* =========================================================
+   Floating light/dark toggle button
+   ========================================================= */
+.theme-toggle {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 1030;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  background: #fff;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
+}
+
+.theme-toggle:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+[data-theme=dark] .theme-toggle {
+  background: #1c2027;
+  border-color: #2c313a;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
+}
+
 /*# sourceMappingURL=custom-styles.css.map */

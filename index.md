@@ -4,7 +4,7 @@ title: AV
 subtitle: Build systems. Invest wisely. Live better.
 # Good for SEO/social
 description: "DevOps & Cloud engineer writing playbooks on AWS, Kubernetes, CI/CD, AI, personal finance, and investing."
-image: /assets/img/social/home-cover.jpg
+image: /assets/img/og-default.jpg
 ---
 
 <!-- HERO -->
@@ -23,7 +23,9 @@ image: /assets/img/social/home-cover.jpg
 
 <div>
   <a class="btn btn-primary" href="/services/">View Services</a>
+  {% if site.projects.size > 0 %}
   <a class="btn" href="/projects/">See Projects</a>
+  {% endif %}
 </div>
 
 ---
@@ -38,14 +40,11 @@ image: /assets/img/social/home-cover.jpg
     <a class="card" href="/tech/">
       <h3>Technology & Engineering</h3><p>AWS, Kubernetes, Terraform.</p>
     </a>
-    <a class="card" href="/personal-finance/">
-      <h3>Personal Finance</h3><p>Canada-focused money basics.</p>
+    <a class="card" href="/finance/">
+      <h3>Personal Finance & Investing</h3><p>Canada-focused money, ETFs, and risk.</p>
     </a>
-    <a class="card" href="/investing/">
-      <h3>Investing</h3><p>ETFs, rules, risk.</p>
-    </a>
-    <a class="card" href="/football/">
-      <h3>Football</h3><p>Tactics & analysis notes.</p>
+    <a class="card" href="/misc/">
+      <h3>Miscellaneous</h3><p>Notes, ideas, and everything else.</p>
     </a>
   </div>
 </section>
@@ -81,3 +80,10 @@ image: /assets/img/social/home-cover.jpg
   <a class="btn" href="/blog/">View all posts</a>
   <a class="btn" href="/atom.xml">RSS</a>
 </div>
+
+<!-- PRIVACY: no tracking, by design -->
+<p class="privacy-note">
+  🔒 <strong>No cookies. No trackers. No ads.</strong>
+  This site doesn't run analytics or set cookies — your visit isn't logged, profiled, or sold.
+  <a href="/privacy/">How this works →</a>
+</p>

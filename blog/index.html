@@ -22,10 +22,11 @@ subtitle: Notes on DevOps, Cloud and shipping reliably
     </p>
 
     <div class="post-entry-container">
-      {% if post.image %}
+      {% comment %} Only show a thumbnail when the post has its own image, not the shared social default {% endcomment %}
+      {% if post.image and post.image != '/assets/img/og-default.jpg' %}
       <div class="post-image">
         <a href="{{ post.url | relative_url }}">
-          <img src="{{ post.image | relative_url }}">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
         </a>
       </div>
       {% endif %}
